@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsckiqlcft4hi"]
+
+[sub_resource type="GDScript" id="GDScript_ed257"]
+script/source = "class_name Elemental_DirectionalForce extends ElementalArea
+"
+
+[node name="Area3D" type="Area3D"]
+script = SubResource("GDScript_ed257")

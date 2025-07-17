@@ -1,0 +1,95 @@
+[gd_scene load_steps=12 format=3 uid="uid://dq0qop6nnuluj"]
+
+[ext_resource type="Script" uid="uid://e2ds0rt220tr" path="res://Scripts/ElementalArea.gd" id="1_vhasj"]
+[ext_resource type="PackedScene" uid="uid://dpmo36kktcvou" path="res://Scenes/ReusableScenes/Player.tscn" id="2_vhasj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vhasj"]
+size = Vector3(19, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_h0cmc"]
+size = Vector3(20, 0.25, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j1njh"]
+transparency = 1
+albedo_color = Color(0, 0.47451, 1, 0.607843)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tx4n1"]
+size = Vector3(5, 5, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_a1ive"]
+size = Vector3(5, 5, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bnv78"]
+transparency = 1
+albedo_color = Color(1, 1, 0, 0.384314)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vhasj"]
+
+[sub_resource type="Sky" id="Sky_h0cmc"]
+sky_material = SubResource("ProceduralSkyMaterial_vhasj")
+
+[sub_resource type="Environment" id="Environment_j1njh"]
+background_mode = 2
+sky = SubResource("Sky_h0cmc")
+ambient_light_source = 3
+ambient_light_color = Color(0.93845, 0.93845, 0.93845, 1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+size = Vector3(20, 0.1, 20)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0.5, 0)
+size = Vector3(1, 1, 2)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0.5, 0)
+size = Vector3(1, 1, 2)
+
+[node name="Elemental_DirectionalForce" type="Area3D" parent="."]
+script = ExtResource("1_vhasj")
+direction = Vector3(1, 0, 0)
+element = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Elemental_DirectionalForce"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_vhasj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Elemental_DirectionalForce"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.187269, 0)
+mesh = SubResource("BoxMesh_h0cmc")
+surface_material_override/0 = SubResource("StandardMaterial3D_j1njh")
+
+[node name="Elemental_DirectionalForce2" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -7)
+script = ExtResource("1_vhasj")
+direction = Vector3(0.5, 0.001, 0.5)
+element = 1
+canMeditate = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Elemental_DirectionalForce2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_tx4n1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Elemental_DirectionalForce2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.187269, 0)
+mesh = SubResource("BoxMesh_a1ive")
+surface_material_override/0 = SubResource("StandardMaterial3D_bnv78")
+
+[node name="Player" parent="." instance=ExtResource("2_vhasj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -3.29667)
+
+[node name="PhantomCamera3D" parent="Player" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.5, -0.75, 0.433013, 0, 0.5, 0.866025, -0.866025, -0.433013, 0.25, 0, 0, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_j1njh")
+
+[editable path="Player"]

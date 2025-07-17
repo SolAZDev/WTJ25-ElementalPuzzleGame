@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://dpmo36kktcvou"]
+
+[ext_resource type="Script" uid="uid://daj6jpvx1wmo7" path="res://Scripts/Player.gd" id="1_r6ox7"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_dp3o5"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_r5iuw"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_ybcbw"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4uvp2"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_r6ox7"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_r2qbw"]
+
+[sub_resource type="Resource" id="Resource_byofs"]
+script = ExtResource("4_ybcbw")
+duration = 1.0
+transition = 0
+ease = 2
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_r6ox7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_4uvp2")
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+mesh = SubResource("CapsuleMesh_r6ox7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/MeshInstance3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.227137, 0.366409)
+mesh = SubResource("BoxMesh_r2qbw")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="PhantomCameraHost" type="Node" parent="Camera3D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("2_dp3o5")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="PhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("follow_target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 25)
+script = ExtResource("3_r5iuw")
+follow_mode = 6
+follow_target = NodePath("../Node3D")
+tween_resource = SubResource("Resource_byofs")
+follow_distance = 10.0
+spring_length = 10.0
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="MeditationTimer" type="Timer" parent="."]
