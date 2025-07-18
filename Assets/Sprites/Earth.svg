@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="128"
+   height="128"
+   viewBox="0 0 33.866667 33.866667"
+   version="1.1"
+   id="svg1"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1">
+    <linearGradient
+       id="linearGradient23">
+      <stop
+         style="stop-color:#004200;stop-opacity:1;"
+         offset="0.09833381"
+         id="stop22" />
+      <stop
+         style="stop-color:#008a31;stop-opacity:1;"
+         offset="0.75986284"
+         id="stop23" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient15">
+      <stop
+         style="stop-color:#28793b;stop-opacity:1;"
+         offset="0.09833381"
+         id="stop14" />
+      <stop
+         style="stop-color:#3a7900;stop-opacity:1;"
+         offset="0.75986284"
+         id="stop15" />
+    </linearGradient>
+    <linearGradient
+       xlink:href="#linearGradient15"
+       id="linearGradient12"
+       x1="16.910156"
+       y1="33.132584"
+       x2="16.910156"
+       y2="-0.68772888"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       xlink:href="#linearGradient23"
+       id="linearGradient13"
+       gradientUnits="userSpaceOnUse"
+       x1="16.910156"
+       y1="33.132584"
+       x2="16.910156"
+       y2="-0.68772888" />
+    <linearGradient
+       xlink:href="#linearGradient23"
+       id="linearGradient14"
+       gradientUnits="userSpaceOnUse"
+       x1="16.910156"
+       y1="33.132584"
+       x2="16.910156"
+       y2="-0.68772888" />
+  </defs>
+  <g
+     id="layer1">
+    <g
+       id="g10"
+       style="mix-blend-mode:normal;fill:#000000;fill-opacity:0;stroke:url(#linearGradient12)"
+       transform="rotate(180,16.910156,17.016179)">
+      <path
+         style="fill:#000000;fill-opacity:0;stroke:url(#linearGradient13);stroke-width:3.5;stroke-dasharray:none"
+         d="M 16.917969,5.4867096 30.645328,28.639518 H 3.1906094 Z"
+         id="path1" />
+      <path
+         style="fill:#000000;fill-opacity:0;stroke:url(#linearGradient14);stroke-width:3.5;stroke-dasharray:none"
+         d="M 0,16.75 H 33.820313"
+         id="path8" />
+    </g>
+  </g>
+</svg>

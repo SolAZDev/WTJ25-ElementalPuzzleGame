@@ -1,5 +1,6 @@
 class_name Utils
 
+
 enum Element{
 	NONE=0,
 	AIR=1,

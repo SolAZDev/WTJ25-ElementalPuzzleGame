@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://beltxa1ul1hcs"]
+
+[ext_resource type="Texture2D" uid="uid://b4ewkqe64l0tx" path="res://Assets/Sprites/wood-canoe.svg" id="1_nwha6"]
+[ext_resource type="Script" uid="uid://dk1gulcedlwn2" path="res://Scripts/Item.gd" id="1_qm3wd"]
+
+[resource]
+script = ExtResource("1_qm3wd")
+Icon = ExtResource("1_nwha6")
+Name = "Canoe"
+Description = "Allows you to traverse water with ease"
+metadata/_custom_type_script = "uid://dk1gulcedlwn2"

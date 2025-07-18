@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="128"
+   height="128"
+   viewBox="0 0 33.866667 33.866667"
+   version="1.1"
+   id="svg1"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1">
+    <linearGradient
+       id="linearGradient11">
+      <stop
+         style="stop-color:#ffcd2d;stop-opacity:1;"
+         offset="0.09833381"
+         id="stop11" />
+      <stop
+         style="stop-color:#cbe100;stop-opacity:1;"
+         offset="0.75986284"
+         id="stop12" />
+    </linearGradient>
+    <linearGradient
+       xlink:href="#linearGradient11"
+       id="linearGradient12"
+       x1="16.910156"
+       y1="33.132584"
+       x2="16.910156"
+       y2="-0.68772888"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       xlink:href="#linearGradient11"
+       id="linearGradient2"
+       gradientUnits="userSpaceOnUse"
+       x1="16.910156"
+       y1="33.132584"
+       x2="16.910156"
+       y2="-0.68772888" />
+    <linearGradient
+       xlink:href="#linearGradient11"
+       id="linearGradient3"
+       gradientUnits="userSpaceOnUse"
+       x1="16.910156"
+       y1="33.132584"
+       x2="16.910156"
+       y2="-0.68772888" />
+  </defs>
+  <g
+     id="layer1">
+    <g
+       id="g10"
+       style="stroke:url(#linearGradient12)">
+      <path
+         style="fill:#000000;fill-opacity:0;stroke:url(#linearGradient2);stroke-width:3.5;stroke-dasharray:none"
+         d="M 16.917969,5.4867096 30.645328,28.639518 H 3.1906094 Z"
+         id="path1" />
+      <path
+         style="fill:#000000;fill-opacity:0;stroke:url(#linearGradient3);stroke-width:3.5;stroke-dasharray:none"
+         d="M 0,16.75 H 33.820313"
+         id="path8" />
+    </g>
+  </g>
+</svg>

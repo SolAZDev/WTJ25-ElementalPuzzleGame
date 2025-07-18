@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://b2epufj43brc2"]
+
+[ext_resource type="Script" uid="uid://dk1gulcedlwn2" path="res://Scripts/Item.gd" id="1_1dxsu"]
+[ext_resource type="Texture2D" uid="uid://da0rnxnukxiwl" path="res://Assets/Sprites/walking-boot.svg" id="1_yarsv"]
+
+[resource]
+script = ExtResource("1_1dxsu")
+Icon = ExtResource("1_yarsv")
+Name = "Boots"
+Description = "Helps traverse through mud, strong shores and fire"
+metadata/_custom_type_script = "uid://dk1gulcedlwn2"

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dnfxo7qswumut"]
+
+[ext_resource type="Script" uid="uid://dk1gulcedlwn2" path="res://Scripts/Item.gd" id="1_jba1d"]
+[ext_resource type="Texture2D" uid="uid://b1u6skxljaluy" path="res://Assets/Sprites/gloves.svg" id="1_o334y"]
+
+[resource]
+script = ExtResource("1_jba1d")
+Icon = ExtResource("1_o334y")
+Name = "Glove"
+Description = "Allows you to grip firmly"
+metadata/_custom_type_script = "uid://dk1gulcedlwn2"

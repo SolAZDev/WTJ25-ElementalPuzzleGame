@@ -1,0 +1,493 @@
+[gd_scene load_steps=21 format=3 uid="uid://cfsjmitq7syj1"]
+
+[ext_resource type="Script" uid="uid://b3rdms3vfy856" path="res://Scripts/PlayerHUD.gd" id="1_pk5j4"]
+[ext_resource type="Texture2D" uid="uid://tq2ramyts1hg" path="res://Assets/Sprites/HealthBar.svg" id="2_iori6"]
+[ext_resource type="Texture2D" uid="uid://ibshyxlwdajx" path="res://Assets/Sprites/Crown.svg" id="2_o8xso"]
+[ext_resource type="Texture2D" uid="uid://egceio8xfmf7" path="res://Assets/Sprites/ThirdEye.svg" id="3_4o4ls"]
+[ext_resource type="Texture2D" uid="uid://xqc4kh26u3va" path="res://Assets/Sprites/InputPromps_Kenney/generic_button_trigger_a_fill.svg" id="3_54pr6"]
+[ext_resource type="Texture2D" uid="uid://bm7e4x61kourh" path="res://Assets/Sprites/Root.svg" id="3_vfwc5"]
+[ext_resource type="Texture2D" uid="uid://bjyayf24ffgwp" path="res://Assets/Sprites/circle.svg" id="4_8rgen"]
+[ext_resource type="Texture2D" uid="uid://dd3t7ummf5r45" path="res://Assets/Sprites/InputPromps_Kenney/generic_button_circle_outline.svg" id="4_188kt"]
+[ext_resource type="Texture2D" uid="uid://iyai75ob148c" path="res://Assets/Sprites/Throat.svg" id="4_o5fke"]
+[ext_resource type="Texture2D" uid="uid://02da76gu55lm" path="res://Assets/Sprites/Heart.svg" id="5_i2evl"]
+[ext_resource type="Texture2D" uid="uid://r0442apiaihm" path="res://Assets/Sprites/Air.svg" id="5_kt5xe"]
+[ext_resource type="Texture2D" uid="uid://dn53slj8tvskx" path="res://Assets/Sprites/SolarPlexus.svg" id="6_3jtpm"]
+[ext_resource type="Texture2D" uid="uid://bqxwukclinisj" path="res://Assets/Sprites/Fire.svg" id="6_15ks0"]
+[ext_resource type="Texture2D" uid="uid://dpgia7b2iepah" path="res://Assets/Sprites/Water.svg" id="7_4o4ls"]
+[ext_resource type="Texture2D" uid="uid://c14raxk5u7r7o" path="res://Assets/Sprites/Sacral.svg" id="7_46pop"]
+[ext_resource type="Texture2D" uid="uid://puwghviqgh1s" path="res://Assets/Sprites/Earth.svg" id="8_o5fke"]
+[ext_resource type="Texture2D" uid="uid://df1f8htqws0ta" path="res://Assets/Sprites/InputPromps_Kenney/generic_button_circle.svg" id="17_ykso4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_i2evl"]
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_2627f"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tfrlj"]
+font_size = 8
+font_color = Color(0, 0, 0, 1)
+
+[node name="PlayerHUD" type="CanvasLayer"]
+follow_viewport_enabled = true
+script = ExtResource("1_pk5j4")
+metadata/_custom_type_script = "uid://b3rdms3vfy856"
+metadata/_edit_vertical_guides_ = [1032.0]
+
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 128.0
+offset_bottom = 152.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Affinities" type="HBoxContainer" parent="."]
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 225.0
+offset_bottom = 318.0
+
+[node name="Chakras" type="VBoxContainer" parent="Affinities"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="RichTextLabel" parent="Affinities/Chakras"]
+layout_mode = 2
+bbcode_enabled = true
+text = "Chakras"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Crown" type="HBoxContainer" parent="Affinities/Chakras"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Affinities/Chakras/Crown"]
+layout_mode = 2
+texture = ExtResource("2_o8xso")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Affinities/Chakras/Crown"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "3"
+label_settings = SubResource("LabelSettings_i2evl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ThirdEye" type="HBoxContainer" parent="Affinities/Chakras"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Affinities/Chakras/ThirdEye"]
+layout_mode = 2
+texture = ExtResource("3_4o4ls")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Affinities/Chakras/ThirdEye"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "3"
+label_settings = SubResource("LabelSettings_i2evl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Throat" type="HBoxContainer" parent="Affinities/Chakras"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Affinities/Chakras/Throat"]
+layout_mode = 2
+texture = ExtResource("4_o5fke")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Affinities/Chakras/Throat"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "3"
+label_settings = SubResource("LabelSettings_i2evl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Heart" type="HBoxContainer" parent="Affinities/Chakras"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Affinities/Chakras/Heart"]
+layout_mode = 2
+texture = ExtResource("5_i2evl")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Affinities/Chakras/Heart"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "3"
+label_settings = SubResource("LabelSettings_i2evl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Solar" type="HBoxContainer" parent="Affinities/Chakras"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Affinities/Chakras/Solar"]
+layout_mode = 2
+texture = ExtResource("6_3jtpm")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Affinities/Chakras/Solar"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "3"
+label_settings = SubResource("LabelSettings_i2evl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sacral" type="HBoxContainer" parent="Affinities/Chakras"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Affinities/Chakras/Sacral"]
+layout_mode = 2
+texture = ExtResource("7_46pop")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Affinities/Chakras/Sacral"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "3"
+label_settings = SubResource("LabelSettings_i2evl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Root" type="HBoxContainer" parent="Affinities/Chakras"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Affinities/Chakras/Root"]
+layout_mode = 2
+texture = ExtResource("3_vfwc5")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Affinities/Chakras/Root"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "3"
+label_settings = SubResource("LabelSettings_i2evl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Element" type="VBoxContainer" parent="Affinities"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="RichTextLabel" parent="Affinities/Element"]
+layout_mode = 2
+bbcode_enabled = true
+text = "Elements"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Aether" type="HBoxContainer" parent="Affinities/Element"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Affinities/Element/Aether"]
+layout_mode = 2
+texture = ExtResource("4_8rgen")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="Affinities/Element/Aether"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "3"
+label_settings = SubResource("LabelSettings_i2evl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Air" type="HBoxContainer" parent="Affinities/Element"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Affinities/Element/Air"]
+layout_mode = 2
+texture = ExtResource("5_kt5xe")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="Affinities/Element/Air"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "3"
+label_settings = SubResource("LabelSettings_i2evl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Fire" type="HBoxContainer" parent="Affinities/Element"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Affinities/Element/Fire"]
+layout_mode = 2
+texture = ExtResource("6_15ks0")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="Affinities/Element/Fire"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "3"
+label_settings = SubResource("LabelSettings_i2evl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Water" type="HBoxContainer" parent="Affinities/Element"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Affinities/Element/Water"]
+layout_mode = 2
+texture = ExtResource("7_4o4ls")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="Affinities/Element/Water"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "3"
+label_settings = SubResource("LabelSettings_i2evl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Earth" type="HBoxContainer" parent="Affinities/Element"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Affinities/Element/Earth"]
+layout_mode = 2
+texture = ExtResource("8_o5fke")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="Affinities/Element/Earth"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "3"
+label_settings = SubResource("LabelSettings_i2evl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Bars" type="VBoxContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -199.0
+offset_top = 25.0
+offset_right = 201.0
+offset_bottom = 77.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="Health" type="TextureProgressBar" parent="Bars"]
+custom_minimum_size = Vector2(400, 12)
+layout_mode = 2
+max_value = 10.0
+value = 10.0
+fill_mode = 6
+nine_patch_stretch = true
+texture_under = ExtResource("2_iori6")
+texture_progress = ExtResource("2_iori6")
+tint_under = Color(0.0338533, 0.0338533, 0.0338533, 1)
+tint_progress = Color(0.707967, 0.707967, 0.707967, 1)
+
+[node name="Stamina" type="TextureProgressBar" parent="Bars"]
+custom_minimum_size = Vector2(400, 4)
+layout_mode = 2
+max_value = 10.0
+value = 10.0
+fill_mode = 6
+nine_patch_stretch = true
+texture_under = ExtResource("2_iori6")
+texture_progress = ExtResource("2_iori6")
+tint_under = Color(0.0338533, 0.0338533, 0.0338533, 1)
+tint_progress = Color(0.8, 0.878431, 0, 1)
+
+[node name="Energy Twilight" type="HBoxContainer" parent="Bars"]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Negative" type="TextureProgressBar" parent="Bars/Energy Twilight"]
+custom_minimum_size = Vector2(200, 12)
+layout_mode = 2
+min_value = -1.0
+max_value = 0.0
+step = 0.001
+nine_patch_stretch = true
+texture_under = ExtResource("2_iori6")
+texture_progress = ExtResource("2_iori6")
+tint_under = Color(0.933333, 0.933333, 0.933333, 1)
+tint_progress = Color(0.000113828, 0.000113828, 0.000113828, 1)
+
+[node name="Positive" type="TextureProgressBar" parent="Bars/Energy Twilight"]
+custom_minimum_size = Vector2(200, 12)
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+value = 0.235
+nine_patch_stretch = true
+texture_under = ExtResource("2_iori6")
+texture_progress = ExtResource("2_iori6")
+tint_under = Color(0.0338533, 0.0338533, 0.0338533, 1)
+tint_progress = Color(0.933333, 0.933333, 0.933333, 1)
+
+[node name="Inputs" type="VBoxContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -220.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 252.0
+grow_horizontal = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Inputs"]
+layout_mode = 2
+alignment = 1
+
+[node name="LBtn" type="TextureRect" parent="Inputs/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_54pr6")
+
+[node name="Label" type="Label" parent="Inputs/HBoxContainer/LBtn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "L"
+label_settings = SubResource("LabelSettings_2627f")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemIcon" type="TextureRect" parent="Inputs/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_188kt")
+expand_mode = 2
+
+[node name="RBtn" type="TextureRect" parent="Inputs/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_54pr6")
+flip_h = true
+
+[node name="Label" type="Label" parent="Inputs/HBoxContainer/RBtn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "R"
+label_settings = SubResource("LabelSettings_2627f")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FaceBtns" type="Control" parent="Inputs"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="South" type="TextureRect" parent="Inputs/FaceBtns"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -64.0
+offset_right = 32.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("17_ykso4")
+
+[node name="Label" type="Label" parent="Inputs/FaceBtns/South"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Jump"
+label_settings = SubResource("LabelSettings_tfrlj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="East" type="TextureRect" parent="Inputs/FaceBtns"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -32.0
+offset_bottom = 32.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("17_ykso4")
+
+[node name="Label" type="Label" parent="Inputs/FaceBtns/East"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_tfrlj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="West" type="TextureRect" parent="Inputs/FaceBtns"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -32.0
+offset_right = 64.0
+offset_bottom = 32.0
+grow_vertical = 2
+texture = ExtResource("17_ykso4")
+
+[node name="Label" type="Label" parent="Inputs/FaceBtns/West"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_tfrlj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="North" type="TextureRect" parent="Inputs/FaceBtns"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_right = 32.0
+offset_bottom = 64.0
+grow_horizontal = 2
+texture = ExtResource("17_ykso4")
+
+[node name="Label" type="Label" parent="Inputs/FaceBtns/North"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Meditate"
+label_settings = SubResource("LabelSettings_tfrlj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpdateTimer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true

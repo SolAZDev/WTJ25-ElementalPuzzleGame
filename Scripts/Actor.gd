@@ -1,6 +1,6 @@
 class_name Actor extends CharacterBody3D
 
-var base_speed = 3
+@export var base_speed = 3
 
 func _physics_process(delta):
 	# Add the gravity.
