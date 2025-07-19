@@ -1,0 +1,21 @@
+~ start
+Fae of Water: Hello... I've never seen you around here before... 
+Fae of Water: Have you perhaps seen a pendant around your travels?
+Fae of Water: I'm afraid I have left the pendant that a dear friend gave to me.
+Fae of Water: That was such a long time ago, I  feel awful that I can't find it.
+Fae of Water: Would you please tell me if you see a pendant in your travels?
+- Yes => StartQuest
+- Not Yet
+	Fae of Water: I understand...
+	Fae of Water: I have to keep looking, but I'm having a hard time.. 
+=> END
+
+~ StartQuest
+Fae of Water: You will?!
+Fae of Water: Oh thank you so much!
+Fae of Water: If you can help me find it, I'd be so grateful...
+Fae of Water: Last time I saw it, I was by the beach over to the East.
+Fae of Water: I think it should be near a river..
+set GameManager
+
+=> END

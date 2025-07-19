@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://d1701imffgx8a"
+path="res://.godot/imported/WaterStart.dialogue-28089dc390d06fe9cc4203607b26183b.tres"
+
+[deps]
+
+source_file="res://Data/Quests/WaterStart.dialogue"
+dest_files=["res://.godot/imported/WaterStart.dialogue-28089dc390d06fe9cc4203607b26183b.tres"]
+
+[params]
+
+defaults=true
