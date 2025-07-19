@@ -43,7 +43,8 @@ func _ready():
 	UpdateTimer.start()
 
 func UpadteUI()->void:
-	
+	# A Moment of Silence, for the remaining Performance of this game...
+	UpdateButtons()
 	# Bars
 	Health.max_value = player.Health.y
 	Health.value = player.Health.x
@@ -51,7 +52,6 @@ func UpadteUI()->void:
 	Stamina.value = player.Stamina.x
 	ETNeg.value = player.Energetic_Twilight
 	ETPos.value = player.Energetic_Twilight
-	
 	# Afinities - Chakras
 	CrownLabel.text = str(player.affinities.Crown)
 	ThirdEyeLabel.text = str(player.affinities.ThirdEye)
@@ -66,14 +66,44 @@ func UpadteUI()->void:
 	FireLabel.text = str(player.affinities.Fire)
 	WaterLabel.text = str(player.affinities.Water)
 	EarthLabel.text = str(player.affinities.Earth)
-	
 	# Inputs, The Tricky one.
 	if player.activeItem == -1: ItemIcon.texture = NullItemIcon
 	else: ItemIcon.texture = player.items[player.activeItem].Icon
+
+func updateEBtn(actionStr:String)->void:updateButtonLabel(EastBtnText,actionStr)
+func updateWBtn(actionStr:String)->void:updateButtonLabel(WestBtnText,actionStr)
+func updateButtonLabel(btnLabel:Label, actionStr:String)->void:
+	if btnLabel.text != actionStr: btnLabel.text = actionStr
 	
-func updateEBtn(str:String)->void:
-	print(str)
-	updateButtonLabel(EastBtnText,str)
-func updateWBtn(str:String)->void:updateButtonLabel(WestBtnText,str)
-func updateButtonLabel(btnLabel:Label, string:String)->void:
-	btnLabel.text = string
+# Player UI updates
+func UpdateButtons():
+	# This is here cause Idk where else to put it honestly.
+	# Just trying to get this out of the way.	
+	#print('Updating Buttons')
+	if player.elemental_area!=null:
+		match(player.elemental_area.element):
+			Utils.Element.AIR:
+				if player.PlayerActiveItemIs('Wing Cloak') and player.Stamina.x>1: 
+					updateEBtn('Float')
+				elif player.input_dir.y > .5: updateEBtn('Drop')
+				else: updateEBtn('')
+			Utils.Element.FIRE: pass #WHAT THAT FIRE DO???
+			Utils.Element.WATER:
+				if !player.isSwimming():
+					print("Not Siwmmin")
+					if player.PlayerActiveItemIs('Canoe'): updateEBtn('Row')
+					else: updateEBtn('Swim')
+				else: updateEBtn('')
+			Utils.Element.EARTH:
+				if player.CanClimb() and player.isClimbing: updateEBtn('Drop')
+				elif player.CanClimb() and !player.isClimbing: updateEBtn('Climb')
+				else: updateEBtn('')
+			_: updateEBtn('')
+	else: updateEBtn('')
+	
+	if player.nearest_interactable!=null:
+		if player.nearest_interactable.isPerson: updateWBtn('Talk')
+		else: updateWBtn('Use')
+	else: updateWBtn('')
+			
+			

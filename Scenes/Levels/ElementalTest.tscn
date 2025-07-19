@@ -44,7 +44,7 @@ ambient_light_color = Color(0.93845, 0.93845, 0.93845, 1)
 use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
-size = Vector3(50, 0.1, 50)
+size = Vector3(100, 0.1, 100)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0.5, 0)
@@ -62,6 +62,7 @@ size = Vector3(3, 10, 1)
 script = ExtResource("1_h0cmc")
 direction = Vector3(0, 0.001, 0)
 multiplier = 0.1
+element = 4
 metadata/_custom_type_script = "uid://cspwfl7r604k0"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CSGCombiner3D/CSGBox3D4/ClimbableArea"]
@@ -85,7 +86,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_j1njh")
 [node name="Elemental_DirectionalForce2" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -7)
 script = ExtResource("1_vhasj")
-direction = Vector3(0.5, 0.001, 0.5)
+direction = Vector3(0.5, 0.1, 0.5)
 element = 1
 canMeditate = true
 

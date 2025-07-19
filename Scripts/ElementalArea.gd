@@ -18,7 +18,7 @@ func _exit_tree():
 func enterBody(body:Node3D): 
 	if body is Player: 
 		(body as Player).elemental_area = self
-		if element == Utils.Element.AIR: (body as Player).isFloating = true
+		# if element == Utils.Element.AIR: (body as Player).isFloating = true
 	
 func exitBody(body:Node3D):
 	if body is Player:
