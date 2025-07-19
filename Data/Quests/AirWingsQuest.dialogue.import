@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://cm7x42r86k3dc"
+path="res://.godot/imported/AirWingsQuest.dialogue-27eec1e50d144422860bf5747210f6b6.tres"
+
+[deps]
+
+source_file="res://Data/Quests/AirWingsQuest.dialogue"
+dest_files=["res://.godot/imported/AirWingsQuest.dialogue-27eec1e50d144422860bf5747210f6b6.tres"]
+
+[params]
+
+defaults=true

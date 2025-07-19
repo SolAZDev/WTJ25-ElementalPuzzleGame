@@ -1,0 +1,67 @@
+~ start
+if _GameManager.Quests['Fire']==0: 
+	=> QuestIntro
+if _GameManager.Quests['Fire']==1 and !_GameManager.player.PlayerHasItem('Pendant'):
+	=> QuestMidway
+if _GameManager.Quests['Fire']==1 and _GameManager.player.PlayerHasItem('Pendant'):
+	=> QuestCompletion
+if _GameManager.Quests['Fire']==2: 
+	=> PostQuest
+=> END
+
+~ QuestIntro
+Fae of Fire: Hello... I've never seen you around here before... 
+Fae of Fire: Have you perhaps seen a pendant around your travels?
+Fae of Fire: I'm afraid I have left the pendant that a dear friend gave to me.
+Fae of Fire: That was such a long time ago, I  feel awful that I can't find it.
+Fae of Fire: Would you please tell me if you see a pendant in your travels?
+- Yes => QuestStart
+- Not Yet
+	Fae of Fire: I understand...
+	Fae of Fire: I have to keep looking, but I'm having a hard time.. 
+	Fae of Fire: If you find it, All I can offer you is a canoe.
+	
+=> END
+
+~ QuestStart
+Fae of Fire: You will?!
+Fae of Fire: Oh thank you so much!
+Fae of Fire: If you can help me find it, I'd be so grateful...
+Fae of Fire: Last time I saw it, I was by the beach over to the East.
+Fae of Fire: I think it should be near a river..
+set _GameManager.Quests['Fire']=1
+=> END
+
+~ QuestMidway
+Fae of Fire: Have you seen the pendant anywhere?
+Fae of Fire: I'm still trying to look for it...
+Fae of Fire: Last time I saw it, I was by the beach over to the East.
+Fae of Fire: Do you think it might still be around?
+Fae of Fire: If yo find it, please let me know.
+Fae of Fire: If you find it, All I can offer you is a canoe.
+=> END
+
+~ QuestCompletion
+Fae of Fire: Have you seen the pendant anywhere?
+Fae of Fire: What's that? You found it?!
+Fae of Fire: Oh thank heavens!! I was terrified I'd lever see it again.
+Fae of Fire: This was given to me by a dear friend a long time ago.
+Fae of Fire: Now then, a just give and take. 
+Fae of Fire: Something precious, for something useful.
+Fae of Fire: A Canoe made of wood. I made it thinking of said friend.
+Fae of Fire: But then I realized, I made it too small.
+Fae of Fire: But It's most likely perfect for you.
+# TODO: Give Item
+You have Obtained The Canoe!
+| This Canoe can help you traverse bigger bodies of Fire
+Fae of Fire: Safe travels
+=> END
+
+~ PostQuest
+Fae of Fire: Wanderer, don't forget this wisdom.
+% Fae of Fire: Fire teaches us that we ought to toss what doesn't serve us into the fire, to make space for better things
+% Fae of Fire: Fire teaches us that there ought to be a balance between passion, and what we want to create.
+% Fae of Fire: My guy, tu estas bien? Con estos calores, a ti no te dan ganas de bañarte?
+% Fae of Fire: La de agua me dijo que te dijera que tu cara es una canoa.
+Fae of Fire: Meditation is a great way to put this into practice
+=> END

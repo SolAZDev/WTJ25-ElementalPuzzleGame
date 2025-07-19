@@ -1,0 +1,67 @@
+~ start
+if _GameManager.Quests['Earth']==0: 
+	=> QuestIntro
+if _GameManager.Quests['Earth']==1 and !_GameManager.player.PlayerHasItem('Drums'):
+	=> QuestMidway
+if _GameManager.Quests['Earth']==1 and _GameManager.player.PlayerHasItem('Drums'):
+	=> QuestCompletion
+if _GameManager.Quests['Earth']==2: 
+	=> PostQuest
+=> END
+
+~ QuestIntro
+Fae of Earth: Hello... I've never seen you around here before... 
+Fae of Earth: Have you perhaps seen a Drums around your travels?
+Fae of Earth: I don't remember where I left my Tambor
+Fae of Earth: That was such a long time ago, I  feel awful that I can't find it.
+Fae of Earth: Would you please tell me if you see a Drums in your travels?
+- Yes => QuestStart
+- Not Yet
+	Fae of Earth: I understand...
+	Fae of Earth: I have to keep looking, but I'm having a hard time.. 
+	Fae of Earth: If you find it, All I can offer you is a canoe.
+	
+=> END
+
+~ QuestStart
+Fae of Earth: You will?!
+Fae of Earth: Oh thank you so much!
+Fae of Earth: If you can help me find it, I'd be so grateful...
+Fae of Earth: Last time I saw it, I was by the beach over to the East.
+Fae of Earth: I think it should be near a river..
+set _GameManager.Quests['Earth']=1
+=> END
+
+~ QuestMidway
+Fae of Earth: Have you seen the Drums anywhere?
+Fae of Earth: I'm still trying to look for it...
+Fae of Earth: Last time I saw it, I was by the beach over to the East.
+Fae of Earth: Do you think it might still be around?
+Fae of Earth: If yo find it, please let me know.
+Fae of Earth: If you find it, All I can offer you is a canoe.
+=> END
+
+~ QuestCompletion
+Fae of Earth: Have you seen the Drums anywhere?
+Fae of Earth: What's that? You found it?!
+Fae of Earth: Oh thank heavens!! I was terrified I'd lever see it again.
+Fae of Earth: This was given to me by a dear friend a long time ago.
+Fae of Earth: Now then, a just give and take. 
+Fae of Earth: Something precious, for something useful.
+Fae of Earth: A Canoe made of wood. I made it thinking of said friend.
+Fae of Earth: But then I realized, I made it too small.
+Fae of Earth: But It's most likely perfect for you.
+# TODO: Give Item
+You have Obtained The Canoe!
+| This Canoe can help you traverse bigger bodies of Earth
+Fae of Earth: Safe travels
+=> END
+
+~ PostQuest
+Fae of Earth: Wandering Spirit, this is my wisdom
+% Fae of Earth: Earth teaches us to retreat and Heal, specially wounds we don't often show. 
+% Fae of Earth: Earth teaches us that it's important to feel all emotion, and allow yourself to feel deeply.
+% Fae of Earth: Canoa-te esta.
+% Fae of Earth: Tu Cara es una Canoa.
+Fae of Earth: Meditation is a great way to put this into practice
+=> END

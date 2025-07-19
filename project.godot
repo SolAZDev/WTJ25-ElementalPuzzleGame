@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 Questify="*res://addons/questify/quest_manager.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+_GameManager="*res://Scripts/GameManager.gd"
 
 [dotnet]
 
@@ -31,7 +32,7 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/questify/plugin.cfg", "res://addons/script-ide/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/script-ide/plugin.cfg")
 
 [input]
 
@@ -136,7 +137,7 @@ item_bk={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://Data/Quests/WaterStart.dialogue")
+locale/translations_pot_files=PackedStringArray("res://Data/Quests/WaterStart.dialogue", "res://Data/Quests/EarthGloveQuest.dialogue", "res://Data/Quests/FireBootsQuest.dialogue", "res://Data/Quests/AirWingsQuest.dialogue")
 
 [questify]
 

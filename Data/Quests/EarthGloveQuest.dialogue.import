@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://csdwt0ynsakil"
+path="res://.godot/imported/EarthGloveQuest.dialogue-649056114c12dbcba650c5206484e110.tres"
+
+[deps]
+
+source_file="res://Data/Quests/EarthGloveQuest.dialogue"
+dest_files=["res://.godot/imported/EarthGloveQuest.dialogue-649056114c12dbcba650c5206484e110.tres"]
+
+[params]
+
+defaults=true

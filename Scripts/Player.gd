@@ -39,7 +39,8 @@ var nearest_interactable: InteractableArea = null
 @export var items: Array[Item] = []
 var activeItem: int = 0 # TODO: ItemIndex ffs
 
-func _init(): pass
+func _init(): 
+	_GameManager.player=self
 
 func CanClimb() -> bool:
 	if elemental_area != null:

@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bemtxa4gkhdmk"
+path="res://.godot/imported/FireBootsQuest.dialogue-d98813fd0992d97f75ddde948b84c36a.tres"
+
+[deps]
+
+source_file="res://Data/Quests/FireBootsQuest.dialogue"
+dest_files=["res://.godot/imported/FireBootsQuest.dialogue-d98813fd0992d97f75ddde948b84c36a.tres"]
+
+[params]
+
+defaults=true

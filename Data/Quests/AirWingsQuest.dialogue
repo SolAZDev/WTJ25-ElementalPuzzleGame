@@ -1,0 +1,67 @@
+~ start
+if _GameManager.Quests['Air']==0: 
+	=> QuestIntro
+if _GameManager.Quests['Air']==1 and !_GameManager.player.PlayerHasItem('Pendant'):
+	=> QuestMidway
+if _GameManager.Quests['Air']==1 and _GameManager.player.PlayerHasItem('Pendant'):
+	=> QuestCompletion
+if _GameManager.Quests['Air']==2: 
+	=> PostQuest
+=> END
+
+~ QuestIntro
+Fae of Air: Hello... I've never seen you around here before... 
+Fae of Air: Have you perhaps seen a pendant around your travels?
+Fae of Air: I'm afraid I have left the pendant that a dear friend gave to me.
+Fae of Air: That was such a long time ago, I  feel awful that I can't find it.
+Fae of Air: Would you please tell me if you see a pendant in your travels?
+- Yes => QuestStart
+- Not Yet
+	Fae of Air: I understand...
+	Fae of Air: I have to keep looking, but I'm having a hard time.. 
+	Fae of Air: If you find it, All I can offer you is a canoe.
+	
+=> END
+
+~ QuestStart
+Fae of Air: You will?!
+Fae of Air: Oh thank you so much!
+Fae of Air: If you can help me find it, I'd be so grateful...
+Fae of Air: Last time I saw it, I was by the beach over to the East.
+Fae of Air: I think it should be near a river..
+set _GameManager.Quests['Air']=1
+=> END
+
+~ QuestMidway
+Fae of Air: Have you seen the pendant anywhere?
+Fae of Air: I'm still trying to look for it...
+Fae of Air: Last time I saw it, I was by the beach over to the East.
+Fae of Air: Do you think it might still be around?
+Fae of Air: If yo find it, please let me know.
+Fae of Air: If you find it, All I can offer you is a canoe.
+=> END
+
+~ QuestCompletion
+Fae of Air: Have you seen the pendant anywhere?
+Fae of Air: What's that? You found it?!
+Fae of Air: Oh thank heavens!! I was terrified I'd lever see it again.
+Fae of Air: This was given to me by a dear friend a long time ago.
+Fae of Air: Now then, a just give and take. 
+Fae of Air: Something precious, for something useful.
+Fae of Air: A Canoe made of wood. I made it thinking of said friend.
+Fae of Air: But then I realized, I made it too small.
+Fae of Air: But It's most likely perfect for you.
+# TODO: Give Item
+You have Obtained The Canoe!
+| This Canoe can help you traverse bigger bodies of Air
+Fae of Air: Safe travels
+=> END
+
+~ PostQuest
+Fae of Air: Wandering Spirit, this is my wisdom
+% Fae of Air: Air teaches us to retreat and Heal, specially wounds we don't often show. 
+% Fae of Air: Air teaches us that it's important to feel all emotion, and allow yourself to feel deeply.
+% Fae of Air: Canoa-te esta.
+% Fae of Air: Tu Cara es una Canoa.
+Fae of Air: Meditation is a great way to put this into practice
+=> END
