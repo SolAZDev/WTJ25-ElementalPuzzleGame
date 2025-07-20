@@ -1,19 +1,47 @@
-[gd_scene load_steps=19 format=3 uid="uid://cn7rhclhchib7"]
+[gd_scene load_steps=63 format=3 uid="uid://cn7rhclhchib7"]
 
 [ext_resource type="Texture2D" uid="uid://dba7biduu31ok" path="res://Assets/Textures/wtj25map_albedo.png" id="1_vhww3"]
 [ext_resource type="PackedScene" uid="uid://dpmo36kktcvou" path="res://Scenes/ReusableScenes/Player.tscn" id="2_5qngm"]
+[ext_resource type="Material" uid="uid://fkhkir6t1hml" path="res://demo/assets/materials/M_crystal_blue.tres" id="2_froqq"]
 [ext_resource type="Texture2D" uid="uid://ckdxnidar2vmx" path="res://Assets/Textures/MatMaker-Repacks/Grass.png" id="3_nd7lf"]
 [ext_resource type="Texture2D" uid="uid://cmyr0n7mbanta" path="res://Assets/Textures/MatMaker-Repacks/GrassNorm.png" id="4_mad3s"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nd7lf"]
-transparency = 1
-cull_mode = 2
-specular_mode = 1
-albedo_color = Color(0.415686, 0.415686, 0.415686, 0.72549)
-albedo_texture = ExtResource("1_vhww3")
+[ext_resource type="Texture2D" uid="uid://baj8lv8snsj5r" path="res://Assets/Textures/MatMaker-Repacks/Cliff.png" id="5_eap8w"]
+[ext_resource type="Texture2D" uid="uid://c3n5mvt1yghgo" path="res://Assets/Textures/MatMaker-Repacks/WetSand.png" id="5_iwyd6"]
+[ext_resource type="Texture2D" uid="uid://c3a8m3l862ggq" path="res://Assets/Textures/MatMaker-Repacks/CliffNorm.png" id="6_6fhrx"]
+[ext_resource type="Texture2D" uid="uid://dpafkv0q5albp" path="res://Assets/Textures/MatMaker-Repacks/WetSandNorm.png" id="6_froqq"]
+[ext_resource type="Texture2D" uid="uid://dmfa6wevtamy1" path="res://Assets/Textures/MatMaker-Repacks/WaterA.png" id="6_icqjq"]
+[ext_resource type="Texture2D" uid="uid://bclf5dk1jwc31" path="res://Assets/Textures/MatMaker-Repacks/WaterANorm.png" id="7_8s2t5"]
+[ext_resource type="Texture2D" uid="uid://d10mv736cpro" path="res://Assets/Textures/MatMaker-Repacks/GrassClumps.png" id="7_qrtcf"]
+[ext_resource type="Texture2D" uid="uid://dxfxnrvbeedy3" path="res://Assets/Textures/MatMaker-Repacks/GrassClumpsNorm.png" id="8_icqjq"]
+[ext_resource type="Texture2D" uid="uid://sls4qabn4cqy" path="res://Assets/Textures/MatMaker-Repacks/GrassFoliage.png" id="9_8s2t5"]
+[ext_resource type="Texture2D" uid="uid://wmsrxg6wrevn" path="res://Assets/Textures/MatMaker-Repacks/GrassFoliageNorm.png" id="10_ug2nl"]
+[ext_resource type="PackedScene" uid="uid://cduq3qcxyh1db" path="res://Scenes/ReusableScenes/Item.tscn" id="16_jkqyy"]
+[ext_resource type="Texture2D" uid="uid://bo54ln73gr77w" path="res://Assets/Textures/MatMaker-Repacks/BeachSand.png" id="16_mp5yw"]
+[ext_resource type="Texture2D" uid="uid://c0e28hp67li1e" path="res://Assets/Textures/MatMaker-Repacks/BeachSandNorm.png" id="17_1pl05"]
+[ext_resource type="Resource" uid="uid://3n148rm8a68u" path="res://Data/Items/Pan Flute.tres" id="17_v20fa"]
+[ext_resource type="Resource" uid="uid://c36l5ncqq508u" path="res://Data/Quests/ItemGet.dialogue" id="18_nania"]
+[ext_resource type="Texture2D" uid="uid://iwcnr5hg3amq" path="res://Assets/Textures/MatMaker-Repacks/BurnedLand.png" id="18_ten5x"]
+[ext_resource type="Texture2D" uid="uid://dofvqje745o7b" path="res://Assets/Textures/MatMaker-Repacks/BurnedLandNorm.png" id="19_scept"]
+[ext_resource type="PackedScene" uid="uid://oil1uon7jccl" path="res://Scenes/ReusableScenes/NPC.tscn" id="19_vg6cm"]
+[ext_resource type="Texture2D" uid="uid://d2t411csy5oq4" path="res://Assets/Textures/MatMaker-Repacks/Moss.png" id="20_7r5av"]
+[ext_resource type="Resource" uid="uid://rgdpjvccyqxo" path="res://Data/Items/Wings.tres" id="20_hctdl"]
+[ext_resource type="Texture2D" uid="uid://c2vlbhcu4jd1q" path="res://Assets/Textures/MatMaker-Repacks/MossNorm.png" id="21_osdh1"]
+[ext_resource type="Resource" uid="uid://cm7x42r86k3dc" path="res://Data/Quests/AirWingsQuest.dialogue" id="21_wmiwl"]
+[ext_resource type="Texture2D" uid="uid://by7ta6jg33enl" path="res://Assets/Textures/MatMaker-Repacks/Rocks2.png" id="22_h0hri"]
+[ext_resource type="Resource" uid="uid://b2epufj43brc2" path="res://Data/Items/Boots.tres" id="22_klfak"]
+[ext_resource type="Texture2D" uid="uid://b1y1bl2qfl57h" path="res://Assets/Textures/MatMaker-Repacks/Rocks2Norm.png" id="23_1uqt2"]
+[ext_resource type="Resource" uid="uid://bgqvd17tyqfvu" path="res://Data/Items/Obsidian.tres" id="23_f3kgf"]
+[ext_resource type="Resource" uid="uid://bemtxa4gkhdmk" path="res://Data/Quests/FireBootsQuest.dialogue" id="24_8q6bn"]
+[ext_resource type="Texture2D" uid="uid://gong32al6v2j" path="res://Assets/Textures/MatMaker-Repacks/Rocks3.png" id="24_iky3i"]
+[ext_resource type="Resource" uid="uid://beltxa1ul1hcs" path="res://Data/Items/Canoe.tres" id="25_lf7u7"]
+[ext_resource type="Texture2D" uid="uid://c0jhtronyo7mv" path="res://Assets/Textures/MatMaker-Repacks/Rocks3Norm.png" id="25_li34p"]
+[ext_resource type="Resource" uid="uid://dnfxo7qswumut" path="res://Data/Items/Glove.tres" id="26_8q6bn"]
+[ext_resource type="Resource" uid="uid://bh5vn0cvw8q14" path="res://Data/Items/Pendant.tres" id="26_a6ju4"]
+[ext_resource type="Resource" uid="uid://d1701imffgx8a" path="res://Data/Quests/WaterStart.dialogue" id="27_l6htp"]
+[ext_resource type="Resource" uid="uid://c0vkikhegwm57" path="res://Data/Items/Drum.tres" id="27_lf7u7"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_mad3s"]
-material = SubResource("StandardMaterial3D_nd7lf")
+material = ExtResource("2_froqq")
 size = Vector2(4096, 4096)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vhww3"]
@@ -52,6 +80,10 @@ noise = SubResource("FastNoiseLite_5qngm")
 
 [sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_mad3s"]
 _shader_parameters = {
+&"auto_base_texture": 0,
+&"auto_height_reduction": 0.1,
+&"auto_overlay_texture": 1,
+&"auto_slope": 1.0,
 &"bias_distance": 512.0,
 &"blend_sharpness": 0.5,
 &"depth_blur": 0.0,
@@ -69,6 +101,7 @@ _shader_parameters = {
 &"noise_texture": SubResource("NoiseTexture2D_nd7lf"),
 &"projection_threshold": 0.8
 }
+auto_shader = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eap8w"]
 transparency = 4
@@ -92,21 +125,114 @@ lod0_range = 128.0
 name = "Grass"
 albedo_texture = ExtResource("3_nd7lf")
 normal_texture = ExtResource("4_mad3s")
+uv_scale = 0.2
+detiling_rotation = 0.24
+detiling_shift = 0.45
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_ug2nl"]
+name = "WaterA"
+id = 1
+albedo_texture = ExtResource("6_icqjq")
+normal_texture = ExtResource("7_8s2t5")
+uv_scale = 0.25
+detiling_rotation = 0.425
+detiling_shift = 0.885
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_33d2g"]
+name = "GrassClumps"
+id = 2
+albedo_texture = ExtResource("7_qrtcf")
+normal_texture = ExtResource("8_icqjq")
+uv_scale = 0.5
+detiling_rotation = 0.75
+detiling_shift = 0.65
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_s5dkl"]
+name = "GrassFoliage"
+id = 3
+albedo_texture = ExtResource("9_8s2t5")
+normal_texture = ExtResource("10_ug2nl")
+uv_scale = 0.25
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_jkqyy"]
+name = "Cliff"
+id = 4
+albedo_texture = ExtResource("5_eap8w")
+normal_texture = ExtResource("6_6fhrx")
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_m35bv"]
+name = "WetSand"
+id = 5
+albedo_texture = ExtResource("5_iwyd6")
+normal_texture = ExtResource("6_froqq")
+uv_scale = 0.5
+detiling_rotation = 0.415
+detiling_shift = 0.775
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_3fnv7"]
+name = "BeachSand"
+id = 6
+albedo_texture = ExtResource("16_mp5yw")
+normal_texture = ExtResource("17_1pl05")
+uv_scale = 0.5
+detiling_rotation = 0.5
+detiling_shift = 0.7
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_se8ra"]
+name = "BurnedLand"
+id = 7
+albedo_texture = ExtResource("18_ten5x")
+normal_texture = ExtResource("19_scept")
+uv_scale = 0.25
+detiling_rotation = 0.58
+detiling_shift = 0.475
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_n4aqf"]
+name = "Moss"
+id = 8
+albedo_texture = ExtResource("20_7r5av")
+normal_texture = ExtResource("21_osdh1")
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_jjgbd"]
+name = "Rocks2"
+id = 9
+albedo_texture = ExtResource("22_h0hri")
+normal_texture = ExtResource("23_1uqt2")
+uv_scale = 0.5
+detiling_rotation = 0.14
+detiling_shift = 0.19
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_4k737"]
+name = "Rocks3"
+id = 10
+albedo_texture = ExtResource("24_iky3i")
+normal_texture = ExtResource("25_li34p")
+uv_scale = 0.5
+detiling_rotation = 0.15
+detiling_shift = 0.165
 
 [sub_resource type="Terrain3DAssets" id="Terrain3DAssets_p658e"]
 mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_6fhrx")])
-texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_eap8w")])
+texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_eap8w"), SubResource("Terrain3DTextureAsset_ug2nl"), SubResource("Terrain3DTextureAsset_33d2g"), SubResource("Terrain3DTextureAsset_s5dkl"), SubResource("Terrain3DTextureAsset_jkqyy"), SubResource("Terrain3DTextureAsset_m35bv"), SubResource("Terrain3DTextureAsset_3fnv7"), SubResource("Terrain3DTextureAsset_se8ra"), SubResource("Terrain3DTextureAsset_n4aqf"), SubResource("Terrain3DTextureAsset_jjgbd"), SubResource("Terrain3DTextureAsset_4k737")])
 
 [node name="Node3D" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("2_5qngm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1156, 19, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 10, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 11, 0)
+visible = false
+mesh = SubResource("QuadMesh_mad3s")
+
+[node name="Water" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.2, 0)
+visible = false
 mesh = SubResource("QuadMesh_mad3s")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 27, 0)
+visible = false
 use_collision = true
 size = Vector3(4096, 0.1, 4096)
 material = SubResource("StandardMaterial3D_vhww3")
@@ -125,9 +251,46 @@ assets = SubResource("Terrain3DAssets_p658e")
 top_level = true
 metadata/_edit_lock_ = true
 
-[node name="Terrain3D" type="Terrain3D" parent="Terrain3D"]
-data_directory = "res://Data/Terrain3D/Levelatronomus"
-material = SubResource("Terrain3DMaterial_mad3s")
-assets = SubResource("Terrain3DAssets_p658e")
-top_level = true
-metadata/_edit_lock_ = true
+[node name="Slyph" parent="." instance=ExtResource("19_vg6cm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 892.116, 28.082, 339.862)
+item = ExtResource("20_hctdl")
+req_item = ExtResource("17_v20fa")
+dialogue = ExtResource("21_wmiwl")
+
+[node name="Salamnder" parent="." instance=ExtResource("19_vg6cm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 183.653, 28.082, 970.96)
+item = ExtResource("22_klfak")
+req_item = ExtResource("23_f3kgf")
+dialogue = ExtResource("24_8q6bn")
+
+[node name="Undine" parent="." instance=ExtResource("19_vg6cm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -734.98, 28.082, 186.253)
+item = ExtResource("25_lf7u7")
+req_item = ExtResource("26_a6ju4")
+dialogue = ExtResource("27_l6htp")
+
+[node name="Gnome" parent="." instance=ExtResource("19_vg6cm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -236.98, 28.082, -614.747)
+item = ExtResource("26_8q6bn")
+req_item = ExtResource("27_lf7u7")
+dialogue = ExtResource("27_l6htp")
+
+[node name="Panflute" parent="." instance=ExtResource("16_jkqyy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1273.3, 27.69, 185.758)
+item = ExtResource("17_v20fa")
+dialogue = ExtResource("18_nania")
+
+[node name="Obsidian" parent="." instance=ExtResource("16_jkqyy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -233.416, 27.69, 877.638)
+item = ExtResource("23_f3kgf")
+dialogue = ExtResource("18_nania")
+
+[node name="Pendant" parent="." instance=ExtResource("16_jkqyy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -819.272, 27.6902, -171.841)
+item = ExtResource("26_a6ju4")
+dialogue = ExtResource("18_nania")
+
+[node name="Drum" parent="." instance=ExtResource("16_jkqyy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 544.728, 27.6902, -526.841)
+item = ExtResource("27_lf7u7")
+dialogue = ExtResource("18_nania")

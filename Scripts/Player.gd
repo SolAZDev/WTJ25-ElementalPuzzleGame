@@ -182,7 +182,7 @@ func GroundingAndMeditation():
 		healing += float(affinities.Heart) / 2 + float(affinities.SolarPlexus) / 2 + float(affinities.Spirit) / 4
 		affinities.Spirit += 1
 		deeperMeditation = false # Also nerf it.
-	if deepMeditation: deepMeditation = false # To Nerf it.
+	if deepMeditation: deepMeditation = false # To Nerf it.	
 	Health.x += healing
 
 func _set_pcam_rotation(cam: PhantomCamera3D, dir: Vector2, isJoy: bool) -> void:
