@@ -127,9 +127,10 @@ detiling_shift = 0.31
 [sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_jjgbd"]
 name = "Rocks2"
 id = 9
+albedo_color = Color(0.683077, 0.683077, 0.683077, 1)
 albedo_texture = ExtResource("19_agone")
 normal_texture = ExtResource("20_jvxpd")
-normal_depth = 2.0
+normal_depth = 0.955
 uv_scale = 0.5
 detiling_rotation = 0.14
 detiling_shift = 0.19

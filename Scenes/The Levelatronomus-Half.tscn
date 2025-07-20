@@ -112,7 +112,7 @@ radius = 48.0
 [node name="Node3D" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("1_0u04f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 577, 19, 0)
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 601, 4, -6)
 
 [node name="LowRef" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -6.955, 2, -2.782)
@@ -125,7 +125,7 @@ visible = false
 mesh = SubResource("PlaneMesh_qo76q")
 
 [node name="Water" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.2, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.819244, 0.673793, 0.0318604)
 mesh = SubResource("PlaneMesh_um0s0")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
@@ -167,12 +167,12 @@ req_item = ExtResource("14_01ntm")
 dialogue = ExtResource("12_7u14y")
 
 [node name="Panflute" parent="." instance=ExtResource("15_x0v5d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 535.3, 31.69, -104.242)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 527.3, 30.69, -123.242)
 item = ExtResource("5_y30h3")
 dialogue = ExtResource("16_0arh2")
 
 [node name="Obsidian" parent="." instance=ExtResource("15_x0v5d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126.584, 27.69, 525.638)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 238.584, 1.69, 570.638)
 item = ExtResource("8_4wnk8")
 dialogue = ExtResource("16_0arh2")
 
