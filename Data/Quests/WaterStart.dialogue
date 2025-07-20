@@ -1,9 +1,9 @@
 ~ start
 if _GameManager.Quests['Water']==0: 
 	=> QuestIntro
-if _GameManager.Quests['Water']==1 and !_GameManager.player.PlayerHasRequestedItem():
+if _GameManager.Quests['Water']==1 and !_GameManager.PlayerHasRequestedItem():
 	=> QuestMidway
-if _GameManager.Quests['Water']==1 and _GameManager.player.PlayerHasRequestedItem():
+if _GameManager.Quests['Water']==1 and _GameManager.PlayerHasRequestedItem():
 	=> QuestCompletion
 if _GameManager.Quests['Water']==2: 
 	=> PostQuest

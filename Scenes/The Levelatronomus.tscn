@@ -1,7 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://cn7rhclhchib7"]
+[gd_scene load_steps=19 format=3 uid="uid://cn7rhclhchib7"]
 
 [ext_resource type="Texture2D" uid="uid://dba7biduu31ok" path="res://Assets/Textures/wtj25map_albedo.png" id="1_vhww3"]
 [ext_resource type="PackedScene" uid="uid://dpmo36kktcvou" path="res://Scenes/ReusableScenes/Player.tscn" id="2_5qngm"]
+[ext_resource type="Texture2D" uid="uid://ckdxnidar2vmx" path="res://Assets/Textures/MatMaker-Repacks/Grass.png" id="3_nd7lf"]
+[ext_resource type="Texture2D" uid="uid://cmyr0n7mbanta" path="res://Assets/Textures/MatMaker-Repacks/GrassNorm.png" id="4_mad3s"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nd7lf"]
 transparency = 1
@@ -67,7 +69,6 @@ _shader_parameters = {
 &"noise_texture": SubResource("NoiseTexture2D_nd7lf"),
 &"projection_threshold": 0.8
 }
-show_checkered = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eap8w"]
 transparency = 4
@@ -87,8 +88,14 @@ last_lod = 0
 last_shadow_lod = 0
 lod0_range = 128.0
 
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_eap8w"]
+name = "Grass"
+albedo_texture = ExtResource("3_nd7lf")
+normal_texture = ExtResource("4_mad3s")
+
 [sub_resource type="Terrain3DAssets" id="Terrain3DAssets_p658e"]
 mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_6fhrx")])
+texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_eap8w")])
 
 [node name="Node3D" type="Node3D"]
 
@@ -115,6 +122,12 @@ environment = SubResource("Environment_nd7lf")
 data_directory = "res://Data/Terrain3D/Levelatronomus"
 material = SubResource("Terrain3DMaterial_mad3s")
 assets = SubResource("Terrain3DAssets_p658e")
-show_checkered = true
+top_level = true
+metadata/_edit_lock_ = true
+
+[node name="Terrain3D" type="Terrain3D" parent="Terrain3D"]
+data_directory = "res://Data/Terrain3D/Levelatronomus"
+material = SubResource("Terrain3DMaterial_mad3s")
+assets = SubResource("Terrain3DAssets_p658e")
 top_level = true
 metadata/_edit_lock_ = true

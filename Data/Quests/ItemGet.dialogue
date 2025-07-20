@@ -1,6 +1,5 @@
 ~ start
-You've found a {{_GameManager.GetActiveInteractiveItem().Name}}
-| {{_GameManager.GetActiveInteractiveItem().Description}}
+You've found a {{_GameManager.GetActiveInteractiveItem().Name}}.  {{_GameManager.GetActiveInteractiveItem().Description}}
 do _GameManager.AddActiveInteractiveItem()
 do _GameManager.DisableActiveInteractive()
 => END

@@ -1,9 +1,9 @@
 ~ start
 if _GameManager.Quests['Air']==0: 
 	=> QuestIntro
-if _GameManager.Quests['Air']==1 and !_GameManager.player.PlayerHasRequestedItem():
+if _GameManager.Quests['Air']==1 and !_GameManager.PlayerHasRequestedItem():
 	=> QuestMidway
-if _GameManager.Quests['Air']==1 and _GameManager.player.PlayerHasRequestedItem():
+if _GameManager.Quests['Air']==1 and _GameManager.PlayerHasRequestedItem():
 	=> QuestCompletion
 if _GameManager.Quests['Air']==2: 
 	=> PostQuest
