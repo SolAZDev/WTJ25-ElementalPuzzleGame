@@ -1,0 +1,148 @@
+[gd_resource type="Terrain3DAssets" load_steps=36 format=3 uid="uid://cvr24mul7gshc"]
+
+[ext_resource type="Texture2D" uid="uid://ckdxnidar2vmx" path="res://Assets/Textures/MatMaker-Repacks/Grass.png" id="1_uut1t"]
+[ext_resource type="Texture2D" uid="uid://cmyr0n7mbanta" path="res://Assets/Textures/MatMaker-Repacks/GrassNorm.png" id="2_xeu7q"]
+[ext_resource type="Texture2D" uid="uid://dmfa6wevtamy1" path="res://Assets/Textures/MatMaker-Repacks/WaterA.png" id="3_q0adj"]
+[ext_resource type="Texture2D" uid="uid://bclf5dk1jwc31" path="res://Assets/Textures/MatMaker-Repacks/WaterANorm.png" id="4_8h5jr"]
+[ext_resource type="Texture2D" uid="uid://d10mv736cpro" path="res://Assets/Textures/MatMaker-Repacks/GrassClumps.png" id="5_h124d"]
+[ext_resource type="Texture2D" uid="uid://dxfxnrvbeedy3" path="res://Assets/Textures/MatMaker-Repacks/GrassClumpsNorm.png" id="6_g35ec"]
+[ext_resource type="Texture2D" uid="uid://sls4qabn4cqy" path="res://Assets/Textures/MatMaker-Repacks/GrassFoliage.png" id="7_busrb"]
+[ext_resource type="Texture2D" uid="uid://wmsrxg6wrevn" path="res://Assets/Textures/MatMaker-Repacks/GrassFoliageNorm.png" id="8_kcqjx"]
+[ext_resource type="Texture2D" uid="uid://baj8lv8snsj5r" path="res://Assets/Textures/MatMaker-Repacks/Cliff.png" id="9_nnrmg"]
+[ext_resource type="Texture2D" uid="uid://c3a8m3l862ggq" path="res://Assets/Textures/MatMaker-Repacks/CliffNorm.png" id="10_3puai"]
+[ext_resource type="Texture2D" uid="uid://c3n5mvt1yghgo" path="res://Assets/Textures/MatMaker-Repacks/WetSand.png" id="11_6fvgr"]
+[ext_resource type="Texture2D" uid="uid://dpafkv0q5albp" path="res://Assets/Textures/MatMaker-Repacks/WetSandNorm.png" id="12_tj7q2"]
+[ext_resource type="Texture2D" uid="uid://bo54ln73gr77w" path="res://Assets/Textures/MatMaker-Repacks/BeachSand.png" id="13_yin53"]
+[ext_resource type="Texture2D" uid="uid://c0e28hp67li1e" path="res://Assets/Textures/MatMaker-Repacks/BeachSandNorm.png" id="14_2cr6b"]
+[ext_resource type="Texture2D" uid="uid://iwcnr5hg3amq" path="res://Assets/Textures/MatMaker-Repacks/BurnedLand.png" id="15_330u5"]
+[ext_resource type="Texture2D" uid="uid://dofvqje745o7b" path="res://Assets/Textures/MatMaker-Repacks/BurnedLandNorm.png" id="16_fxals"]
+[ext_resource type="Texture2D" uid="uid://d2t411csy5oq4" path="res://Assets/Textures/MatMaker-Repacks/Moss.png" id="17_0y8pw"]
+[ext_resource type="Texture2D" uid="uid://c2vlbhcu4jd1q" path="res://Assets/Textures/MatMaker-Repacks/MossNorm.png" id="18_y46sk"]
+[ext_resource type="Texture2D" uid="uid://by7ta6jg33enl" path="res://Assets/Textures/MatMaker-Repacks/Rocks2.png" id="19_agone"]
+[ext_resource type="Texture2D" uid="uid://b1y1bl2qfl57h" path="res://Assets/Textures/MatMaker-Repacks/Rocks2Norm.png" id="20_jvxpd"]
+[ext_resource type="Texture2D" uid="uid://gong32al6v2j" path="res://Assets/Textures/MatMaker-Repacks/Rocks3.png" id="21_p7edt"]
+[ext_resource type="Texture2D" uid="uid://c0jhtronyo7mv" path="res://Assets/Textures/MatMaker-Repacks/Rocks3Norm.png" id="22_2m02m"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eap8w"]
+transparency = 4
+cull_mode = 2
+vertex_color_use_as_albedo = true
+backlight_enabled = true
+backlight = Color(0.5, 0.5, 0.5, 1)
+distance_fade_mode = 1
+distance_fade_min_distance = 128.0
+distance_fade_max_distance = 96.0
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_6fhrx"]
+generated_type = 1
+height_offset = 0.5
+material_override = SubResource("StandardMaterial3D_eap8w")
+last_lod = 0
+last_shadow_lod = 0
+lod0_range = 128.0
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_eap8w"]
+name = "Grass"
+albedo_texture = ExtResource("1_uut1t")
+normal_texture = ExtResource("2_xeu7q")
+normal_depth = 1.0
+uv_scale = 0.2
+detiling_rotation = 0.24
+detiling_shift = 0.45
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_ug2nl"]
+name = "WaterA"
+id = 1
+albedo_color = Color(0.733005, 0.733005, 0.733005, 1)
+albedo_texture = ExtResource("3_q0adj")
+normal_texture = ExtResource("4_8h5jr")
+uv_scale = 0.25
+detiling_rotation = 0.425
+detiling_shift = 0.885
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_33d2g"]
+name = "GrassClumps"
+id = 2
+albedo_texture = ExtResource("5_h124d")
+normal_texture = ExtResource("6_g35ec")
+uv_scale = 0.5
+detiling_rotation = 0.75
+detiling_shift = 0.65
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_s5dkl"]
+name = "GrassFoliage"
+id = 3
+albedo_color = Color(0.197908, 0.451835, 0, 1)
+albedo_texture = ExtResource("7_busrb")
+normal_texture = ExtResource("8_kcqjx")
+normal_depth = 0.913
+roughness = 0.359
+uv_scale = 0.25
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_jkqyy"]
+name = "Cliff"
+id = 4
+albedo_texture = ExtResource("9_nnrmg")
+normal_texture = ExtResource("10_3puai")
+normal_depth = 1.0
+uv_scale = 0.75
+detiling_shift = 0.6
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_m35bv"]
+name = "WetSand"
+id = 5
+albedo_texture = ExtResource("11_6fvgr")
+normal_texture = ExtResource("12_tj7q2")
+uv_scale = 0.62
+detiling_rotation = 0.415
+detiling_shift = 0.775
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_3fnv7"]
+name = "BeachSand"
+id = 6
+albedo_texture = ExtResource("13_yin53")
+normal_texture = ExtResource("14_2cr6b")
+uv_scale = 1.408
+detiling_rotation = 0.5
+detiling_shift = 0.7
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_se8ra"]
+name = "BurnedLand"
+id = 7
+albedo_texture = ExtResource("15_330u5")
+normal_texture = ExtResource("16_fxals")
+uv_scale = 0.543
+detiling_rotation = 0.58
+detiling_shift = 0.475
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_n4aqf"]
+name = "Moss"
+id = 8
+albedo_texture = ExtResource("17_0y8pw")
+normal_texture = ExtResource("18_y46sk")
+uv_scale = 0.5
+detiling_rotation = 0.12
+detiling_shift = 0.31
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_jjgbd"]
+name = "Rocks2"
+id = 9
+albedo_texture = ExtResource("19_agone")
+normal_texture = ExtResource("20_jvxpd")
+normal_depth = 2.0
+uv_scale = 0.5
+detiling_rotation = 0.14
+detiling_shift = 0.19
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_4k737"]
+name = "Rocks3"
+id = 10
+albedo_texture = ExtResource("21_p7edt")
+normal_texture = ExtResource("22_2m02m")
+uv_scale = 0.565
+detiling_rotation = 0.15
+detiling_shift = 0.165
+
+[resource]
+mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_6fhrx")])
+texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_eap8w"), SubResource("Terrain3DTextureAsset_ug2nl"), SubResource("Terrain3DTextureAsset_33d2g"), SubResource("Terrain3DTextureAsset_s5dkl"), SubResource("Terrain3DTextureAsset_jkqyy"), SubResource("Terrain3DTextureAsset_m35bv"), SubResource("Terrain3DTextureAsset_3fnv7"), SubResource("Terrain3DTextureAsset_se8ra"), SubResource("Terrain3DTextureAsset_n4aqf"), SubResource("Terrain3DTextureAsset_jjgbd"), SubResource("Terrain3DTextureAsset_4k737")])

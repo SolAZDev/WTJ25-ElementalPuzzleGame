@@ -60,7 +60,7 @@ mesh = SubResource("BoxMesh_r2qbw")
 
 [node name="WallClimbCheck" type="RayCast3D" parent="Mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.201014, 0.519814)
-target_position = Vector3(0, 0, 2)
+target_position = Vector3(0, 0, 2.5)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 physics_interpolation_mode = 1

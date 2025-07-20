@@ -1,0 +1,213 @@
+[gd_scene load_steps=35 format=3 uid="uid://c3s3654f4vihw"]
+
+[ext_resource type="PackedScene" uid="uid://dpmo36kktcvou" path="res://Scenes/ReusableScenes/Player.tscn" id="1_0u04f"]
+[ext_resource type="Texture2D" uid="uid://dba7biduu31ok" path="res://Assets/Textures/wtj25map_albedo.png" id="2_cvqhj"]
+[ext_resource type="Material" uid="uid://fkhkir6t1hml" path="res://demo/assets/materials/M_crystal_blue.tres" id="3_cvqhj"]
+[ext_resource type="PackedScene" uid="uid://oil1uon7jccl" path="res://Scenes/ReusableScenes/NPC.tscn" id="3_um0s0"]
+[ext_resource type="Resource" uid="uid://rgdpjvccyqxo" path="res://Data/Items/Wings.tres" id="4_qo76q"]
+[ext_resource type="Resource" uid="uid://3n148rm8a68u" path="res://Data/Items/Pan Flute.tres" id="5_y30h3"]
+[ext_resource type="Resource" uid="uid://cm7x42r86k3dc" path="res://Data/Quests/AirWingsQuest.dialogue" id="6_5ny5d"]
+[ext_resource type="Resource" uid="uid://b2epufj43brc2" path="res://Data/Items/Boots.tres" id="7_xgbbl"]
+[ext_resource type="Resource" uid="uid://bgqvd17tyqfvu" path="res://Data/Items/Obsidian.tres" id="8_4wnk8"]
+[ext_resource type="Resource" uid="uid://bemtxa4gkhdmk" path="res://Data/Quests/FireBootsQuest.dialogue" id="9_x4w4x"]
+[ext_resource type="Resource" uid="uid://beltxa1ul1hcs" path="res://Data/Items/Canoe.tres" id="10_4dju6"]
+[ext_resource type="Resource" uid="uid://bh5vn0cvw8q14" path="res://Data/Items/Pendant.tres" id="11_xr74o"]
+[ext_resource type="Resource" uid="uid://d1701imffgx8a" path="res://Data/Quests/WaterStart.dialogue" id="12_7u14y"]
+[ext_resource type="Resource" uid="uid://dnfxo7qswumut" path="res://Data/Items/Glove.tres" id="13_b5xft"]
+[ext_resource type="Resource" uid="uid://c0vkikhegwm57" path="res://Data/Items/Drum.tres" id="14_01ntm"]
+[ext_resource type="PackedScene" uid="uid://cduq3qcxyh1db" path="res://Scenes/ReusableScenes/Item.tscn" id="15_x0v5d"]
+[ext_resource type="Resource" uid="uid://c36l5ncqq508u" path="res://Data/Quests/ItemGet.dialogue" id="16_0arh2"]
+[ext_resource type="Terrain3DAssets" uid="uid://cvr24mul7gshc" path="res://Data/Terrain3D/The Levelatronomus Resources.tres" id="17_yumhn"]
+[ext_resource type="Script" uid="uid://cspwfl7r604k0" path="res://Scripts/ClimbableArea.gd" id="19_um0s0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vhww3"]
+transparency = 1
+cull_mode = 1
+albedo_color = Color(1, 1, 1, 0.203922)
+albedo_texture = ExtResource("2_cvqhj")
+
+[sub_resource type="QuadMesh" id="QuadMesh_mad3s"]
+material = SubResource("StandardMaterial3D_vhww3")
+size = Vector2(2048, 2048)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cvqhj"]
+transparency = 1
+cull_mode = 1
+albedo_color = Color(1, 1, 1, 0.0509804)
+albedo_texture = ExtResource("2_cvqhj")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qo76q"]
+material = SubResource("StandardMaterial3D_cvqhj")
+size = Vector2(2048, 2048)
+orientation = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_um0s0"]
+material = ExtResource("3_cvqhj")
+flip_faces = true
+size = Vector2(2048, 2048)
+orientation = 2
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vhww3"]
+
+[sub_resource type="Sky" id="Sky_5qngm"]
+sky_material = SubResource("ProceduralSkyMaterial_vhww3")
+
+[sub_resource type="Environment" id="Environment_nd7lf"]
+background_mode = 2
+sky = SubResource("Sky_5qngm")
+
+[sub_resource type="Gradient" id="Gradient_8iren"]
+offsets = PackedFloat32Array(0.2, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_8sg4b"]
+noise_type = 2
+seed = 16072025
+frequency = 0.03
+cellular_jitter = 3.0
+cellular_return_type = 0
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_amplitude = 50.0
+domain_warp_fractal_type = 2
+domain_warp_fractal_lacunarity = 1.5
+domain_warp_fractal_gain = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gh2ad"]
+seamless = true
+color_ramp = SubResource("Gradient_8iren")
+noise = SubResource("FastNoiseLite_8sg4b")
+
+[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_l7u6l"]
+_shader_parameters = {
+&"bias_distance": 512.0,
+&"blend_sharpness": 0.0,
+&"depth_blur": 0.0,
+&"enable_macro_variation": true,
+&"enable_projection": true,
+&"flat_terrain_normals": true,
+&"macro_variation1": Color(1, 1, 1, 1),
+&"macro_variation2": Color(1, 1, 1, 1),
+&"macro_variation_slope": 0.333,
+&"mipmap_bias": 1.0,
+&"noise1_angle": 0.0,
+&"noise1_offset": Vector2(0.5, 0.5),
+&"noise1_scale": 0.04,
+&"noise2_scale": 0.076,
+&"noise_texture": SubResource("NoiseTexture2D_gh2ad"),
+&"projection_threshold": 0.0
+}
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_qo76q"]
+height = 22.0
+radius = 26.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_um0s0"]
+size = Vector3(60, 20, 22)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_um0s0"]
+height = 30.0
+radius = 48.0
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_0u04f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 577, 19, 0)
+
+[node name="LowRef" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -6.955, 2, -2.782)
+visible = false
+mesh = SubResource("QuadMesh_mad3s")
+
+[node name="UpperRef" type="MeshInstance3D" parent="LowRef"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.955, 1.99999, -297.782)
+visible = false
+mesh = SubResource("PlaneMesh_qo76q")
+
+[node name="Water" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.2, 0)
+mesh = SubResource("PlaneMesh_um0s0")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 27, 0)
+visible = false
+use_collision = true
+size = Vector3(2048, 0.1, 2048)
+material = SubResource("StandardMaterial3D_vhww3")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.258819, -0.683013, 0.683013, 0, 0.707107, 0.707107, -0.965926, -0.183013, 0.183013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_nd7lf")
+
+[node name="Slyph" parent="." instance=ExtResource("3_um0s0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 462.116, 42.082, 16.862)
+item = ExtResource("4_qo76q")
+req_item = ExtResource("5_y30h3")
+dialogue = ExtResource("6_5ny5d")
+
+[node name="Salamnder" parent="." instance=ExtResource("3_um0s0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 106.653, 41.082, 348.96)
+item = ExtResource("7_xgbbl")
+req_item = ExtResource("8_4wnk8")
+dialogue = ExtResource("9_x4w4x")
+
+[node name="Undine" parent="." instance=ExtResource("3_um0s0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -368.98, 28.082, 112.253)
+item = ExtResource("10_4dju6")
+req_item = ExtResource("11_xr74o")
+dialogue = ExtResource("12_7u14y")
+
+[node name="Gnome" parent="." instance=ExtResource("3_um0s0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -145.98, 28.082, -304.747)
+item = ExtResource("13_b5xft")
+req_item = ExtResource("14_01ntm")
+dialogue = ExtResource("12_7u14y")
+
+[node name="Panflute" parent="." instance=ExtResource("15_x0v5d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 535.3, 31.69, -104.242)
+item = ExtResource("5_y30h3")
+dialogue = ExtResource("16_0arh2")
+
+[node name="Obsidian" parent="." instance=ExtResource("15_x0v5d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126.584, 27.69, 525.638)
+item = ExtResource("8_4wnk8")
+dialogue = ExtResource("16_0arh2")
+
+[node name="Pendant" parent="." instance=ExtResource("15_x0v5d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -549.272, 27.6902, -99.841)
+item = ExtResource("11_xr74o")
+dialogue = ExtResource("16_0arh2")
+
+[node name="Drum" parent="." instance=ExtResource("15_x0v5d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 171.728, 27.6902, -454.841)
+item = ExtResource("14_01ntm")
+dialogue = ExtResource("16_0arh2")
+
+[node name="Terrain3D" type="Terrain3D" parent="."]
+data_directory = "res://Data/Terrain3D/Levelatronomus-Half"
+material = SubResource("Terrain3DMaterial_l7u6l")
+assets = ExtResource("17_yumhn")
+top_level = true
+metadata/_edit_lock_ = true
+
+[node name="ClimbableArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 535, 0, -27)
+script = ExtResource("19_um0s0")
+element = 4
+canMeditate = true
+metadata/_custom_type_script = "uid://cspwfl7r604k0"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ClimbableArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5119, 19, 24.5889)
+shape = SubResource("CylinderShape3D_qo76q")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="ClimbableArea"]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -14.747, 19.5436, 58.2594)
+shape = SubResource("BoxShape3D_um0s0")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="ClimbableArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -67.4881, 24, 46.5889)
+shape = SubResource("CylinderShape3D_um0s0")
