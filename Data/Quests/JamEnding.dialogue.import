@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://d4bdepg6l0x1p"
+path="res://.godot/imported/JamEnding.dialogue-7a492962262b53de6d8484e5413a8115.tres"
+
+[deps]
+
+source_file="res://Data/Quests/JamEnding.dialogue"
+dest_files=["res://.godot/imported/JamEnding.dialogue-7a492962262b53de6d8484e5413a8115.tres"]
+
+[params]
+
+defaults=true

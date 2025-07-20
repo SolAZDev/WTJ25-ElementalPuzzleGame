@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://c3s3654f4vihw"]
+[gd_scene load_steps=40 format=3 uid="uid://c3s3654f4vihw"]
 
 [ext_resource type="PackedScene" uid="uid://dpmo36kktcvou" path="res://Scenes/ReusableScenes/Player.tscn" id="1_0u04f"]
 [ext_resource type="Texture2D" uid="uid://dba7biduu31ok" path="res://Assets/Textures/wtj25map_albedo.png" id="2_cvqhj"]
@@ -57,6 +57,74 @@ sky_material = SubResource("ProceduralSkyMaterial_vhww3")
 background_mode = 2
 sky = SubResource("Sky_5qngm")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xgbbl"]
+render_priority = 0
+shader = ExtResource("14_qo76q")
+shader_parameter/_AlphaCutoutEnable = 0.0
+shader_parameter/_Cutoff = 0.5
+shader_parameter/_Color = Color(1, 1, 0, 1)
+shader_parameter/_ShadeColor = Color(0.57, 0.551, 0, 1)
+shader_parameter/_MainTex_ST = Vector4(1, 1, 0, 0)
+shader_parameter/_BumpScale = 1.0
+shader_parameter/_ReceiveShadowRate = 1.0
+shader_parameter/_ShadingGradeRate = 1.0
+shader_parameter/_ShadeShift = 0.0
+shader_parameter/_ShadeToony = 0.9
+shader_parameter/_LightColorAttenuation = 0.0
+shader_parameter/_IndirectLightIntensity = 0.1
+shader_parameter/_RimColor = Color(0, 0, 0, 1)
+shader_parameter/_RimLightingMix = 0.0
+shader_parameter/_RimFresnelPower = 1.0
+shader_parameter/_RimLift = 0.0
+shader_parameter/_MatcapColor = Color(0, 0, 0, 1)
+shader_parameter/_EmissionColor = Color(0, 0, 0, 1)
+shader_parameter/_EmissionMultiplier = 1.0
+shader_parameter/_OutlineWidthMode = 1.0
+shader_parameter/_OutlineWidth = 0.5
+shader_parameter/_OutlineScaledMaxDistance = 1.0
+shader_parameter/_OutlineColorMode = 0.0
+shader_parameter/_OutlineColor = Color(0, 0, 0, 1)
+shader_parameter/_OutlineLightingMix = 0.0
+shader_parameter/_UvAnimScrollX = 0.0
+shader_parameter/_UvAnimRotation = 0.0
+shader_parameter/_UvAnimScrollY = 0.0
+shader_parameter/_DebugMode = 0.0
+shader_parameter/_MToonVersion = 33.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5ny5d"]
+render_priority = 0
+shader = ExtResource("14_qo76q")
+shader_parameter/_AlphaCutoutEnable = 0.0
+shader_parameter/_Cutoff = 0.5
+shader_parameter/_Color = Color(1, 0.470588, 0, 1)
+shader_parameter/_ShadeColor = Color(1, 0, 0, 1)
+shader_parameter/_MainTex_ST = Vector4(1, 1, 0, 0)
+shader_parameter/_BumpScale = 1.0
+shader_parameter/_ReceiveShadowRate = 1.0
+shader_parameter/_ShadingGradeRate = 1.0
+shader_parameter/_ShadeShift = 0.0
+shader_parameter/_ShadeToony = 0.9
+shader_parameter/_LightColorAttenuation = 0.0
+shader_parameter/_IndirectLightIntensity = 0.1
+shader_parameter/_RimColor = Color(0, 0, 0, 1)
+shader_parameter/_RimLightingMix = 0.0
+shader_parameter/_RimFresnelPower = 1.0
+shader_parameter/_RimLift = 0.0
+shader_parameter/_MatcapColor = Color(0, 0, 0, 1)
+shader_parameter/_EmissionColor = Color(0, 0, 0, 1)
+shader_parameter/_EmissionMultiplier = 1.0
+shader_parameter/_OutlineWidthMode = 1.0
+shader_parameter/_OutlineWidth = 0.5
+shader_parameter/_OutlineScaledMaxDistance = 1.0
+shader_parameter/_OutlineColorMode = 0.0
+shader_parameter/_OutlineColor = Color(0, 0, 0, 1)
+shader_parameter/_OutlineLightingMix = 0.0
+shader_parameter/_UvAnimScrollX = 0.0
+shader_parameter/_UvAnimRotation = 0.0
+shader_parameter/_UvAnimScrollY = 0.0
+shader_parameter/_DebugMode = 0.0
+shader_parameter/_MToonVersion = 33.0
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y30h3"]
 render_priority = 0
 shader = ExtResource("14_qo76q")
@@ -91,13 +159,13 @@ shader_parameter/_UvAnimScrollY = 0.0
 shader_parameter/_DebugMode = 0.0
 shader_parameter/_MToonVersion = 33.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5ny5d"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qo76q"]
 render_priority = 0
 shader = ExtResource("14_qo76q")
 shader_parameter/_AlphaCutoutEnable = 0.0
 shader_parameter/_Cutoff = 0.5
-shader_parameter/_Color = Color(0.0901961, 0.698039, 1, 1)
-shader_parameter/_ShadeColor = Color(0.0901961, 0.698039, 1, 1)
+shader_parameter/_Color = Color(0.223529, 0.784314, 0.133333, 1)
+shader_parameter/_ShadeColor = Color(0.112267, 0.4, 0.068, 1)
 shader_parameter/_MainTex_ST = Vector4(1, 1, 0, 0)
 shader_parameter/_BumpScale = 1.0
 shader_parameter/_ReceiveShadowRate = 1.0
@@ -212,16 +280,24 @@ shadow_enabled = true
 environment = SubResource("Environment_nd7lf")
 
 [node name="Slyph" parent="." instance=ExtResource("3_um0s0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 462.116, 42.082, 16.862)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 471.116, 41.082, 16.862)
 item = ExtResource("4_qo76q")
 req_item = ExtResource("5_y30h3")
 dialogue = ExtResource("6_5ny5d")
 
+[node name="Plane" parent="Slyph/StaticBody3D/NPC" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.583096, -0.00248718, 0.175537)
+surface_material_override/0 = SubResource("ShaderMaterial_xgbbl")
+
 [node name="Salamnder" parent="." instance=ExtResource("3_um0s0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 106.653, 41.082, 348.96)
+transform = Transform3D(-0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, 106.653, 41.638, 348.96)
 item = ExtResource("7_xgbbl")
 req_item = ExtResource("8_4wnk8")
 dialogue = ExtResource("9_x4w4x")
+
+[node name="Plane" parent="Salamnder/StaticBody3D/NPC" index="0"]
+transform = Transform3D(0.999988, 0.0047088, 0.00148998, -0.00470889, 0.999989, 5.53257e-05, -0.00148973, -6.23274e-05, 0.999999, 0, 0, 0)
+surface_material_override/0 = SubResource("ShaderMaterial_5ny5d")
 
 [node name="Undine" parent="." instance=ExtResource("3_um0s0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -232.98, 59.082, 394.253)
@@ -233,13 +309,16 @@ dialogue = ExtResource("12_7u14y")
 surface_material_override/0 = SubResource("ShaderMaterial_y30h3")
 
 [node name="Gnome" parent="." instance=ExtResource("3_um0s0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -145.98, 28.082, -304.747)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -244.104, 67.6855, -232.068)
 item = ExtResource("13_b5xft")
 req_item = ExtResource("14_01ntm")
 dialogue = ExtResource("12_7u14y")
 
 [node name="Plane" parent="Gnome/StaticBody3D/NPC" index="0"]
-surface_material_override/0 = SubResource("ShaderMaterial_5ny5d")
+surface_material_override/0 = SubResource("ShaderMaterial_qo76q")
+
+[node name="Ending" parent="." instance=ExtResource("3_um0s0")]
+transform = Transform3D(-0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, 23, 300.255, -32)
 
 [node name="Panflute" parent="." instance=ExtResource("15_x0v5d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 527.3, 30.69, -123.242)
@@ -257,7 +336,7 @@ item = ExtResource("11_xr74o")
 dialogue = ExtResource("16_0arh2")
 
 [node name="Drum" parent="." instance=ExtResource("15_x0v5d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 171.728, 27.6902, -454.841)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.7558, 42.6902, -507.281)
 item = ExtResource("14_01ntm")
 dialogue = ExtResource("16_0arh2")
 
@@ -287,6 +366,10 @@ shape = SubResource("BoxShape3D_um0s0")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -67.4881, 24, 46.5889)
 shape = SubResource("CylinderShape3D_um0s0")
 
+[editable path="Slyph"]
+[editable path="Slyph/StaticBody3D/NPC"]
+[editable path="Salamnder"]
+[editable path="Salamnder/StaticBody3D/NPC"]
 [editable path="Undine"]
 [editable path="Undine/StaticBody3D/NPC"]
 [editable path="Gnome"]
