@@ -1,0 +1,120 @@
+[gd_scene load_steps=16 format=3 uid="uid://cn7rhclhchib7"]
+
+[ext_resource type="Texture2D" uid="uid://dba7biduu31ok" path="res://Assets/Textures/wtj25map_albedo.png" id="1_vhww3"]
+[ext_resource type="PackedScene" uid="uid://dpmo36kktcvou" path="res://Scenes/ReusableScenes/Player.tscn" id="2_5qngm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nd7lf"]
+transparency = 1
+cull_mode = 2
+specular_mode = 1
+albedo_color = Color(0.415686, 0.415686, 0.415686, 0.72549)
+albedo_texture = ExtResource("1_vhww3")
+
+[sub_resource type="QuadMesh" id="QuadMesh_mad3s"]
+material = SubResource("StandardMaterial3D_nd7lf")
+size = Vector2(4096, 4096)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vhww3"]
+albedo_color = Color(0.458405, 0.458405, 0.458405, 1)
+albedo_texture = ExtResource("1_vhww3")
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vhww3"]
+
+[sub_resource type="Sky" id="Sky_5qngm"]
+sky_material = SubResource("ProceduralSkyMaterial_vhww3")
+
+[sub_resource type="Environment" id="Environment_nd7lf"]
+background_mode = 2
+sky = SubResource("Sky_5qngm")
+
+[sub_resource type="Gradient" id="Gradient_vhww3"]
+offsets = PackedFloat32Array(0.2, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_5qngm"]
+noise_type = 2
+frequency = 0.03
+cellular_jitter = 3.0
+cellular_return_type = 0
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_amplitude = 50.0
+domain_warp_fractal_type = 2
+domain_warp_fractal_lacunarity = 1.5
+domain_warp_fractal_gain = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nd7lf"]
+seamless = true
+color_ramp = SubResource("Gradient_vhww3")
+noise = SubResource("FastNoiseLite_5qngm")
+
+[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_mad3s"]
+_shader_parameters = {
+&"bias_distance": 512.0,
+&"blend_sharpness": 0.5,
+&"depth_blur": 0.0,
+&"enable_macro_variation": true,
+&"enable_projection": true,
+&"flat_terrain_normals": false,
+&"macro_variation1": Color(1, 1, 1, 1),
+&"macro_variation2": Color(1, 1, 1, 1),
+&"macro_variation_slope": 0.333,
+&"mipmap_bias": 1.0,
+&"noise1_angle": 0.0,
+&"noise1_offset": Vector2(0.5, 0.5),
+&"noise1_scale": 0.04,
+&"noise2_scale": 0.076,
+&"noise_texture": SubResource("NoiseTexture2D_nd7lf"),
+&"projection_threshold": 0.8
+}
+show_checkered = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eap8w"]
+transparency = 4
+cull_mode = 2
+vertex_color_use_as_albedo = true
+backlight_enabled = true
+backlight = Color(0.5, 0.5, 0.5, 1)
+distance_fade_mode = 1
+distance_fade_min_distance = 128.0
+distance_fade_max_distance = 96.0
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_6fhrx"]
+generated_type = 1
+height_offset = 0.5
+material_override = SubResource("StandardMaterial3D_eap8w")
+last_lod = 0
+last_shadow_lod = 0
+lod0_range = 128.0
+
+[sub_resource type="Terrain3DAssets" id="Terrain3DAssets_p658e"]
+mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_6fhrx")])
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("2_5qngm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 10, 0)
+mesh = SubResource("QuadMesh_mad3s")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+use_collision = true
+size = Vector3(4096, 0.1, 4096)
+material = SubResource("StandardMaterial3D_vhww3")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.258819, -0.683013, 0.683013, 0, 0.707107, 0.707107, -0.965926, -0.183013, 0.183013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_nd7lf")
+
+[node name="Terrain3D" type="Terrain3D" parent="."]
+data_directory = "res://Data/Terrain3D/Levelatronomus"
+material = SubResource("Terrain3DMaterial_mad3s")
+assets = SubResource("Terrain3DAssets_p658e")
+show_checkered = true
+top_level = true
+metadata/_edit_lock_ = true
