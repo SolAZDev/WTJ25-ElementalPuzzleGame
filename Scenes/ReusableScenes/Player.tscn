@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dpmo36kktcvou"]
+[gd_scene load_steps=16 format=3 uid="uid://dpmo36kktcvou"]
 
 [ext_resource type="Script" uid="uid://daj6jpvx1wmo7" path="res://Scripts/Player.gd" id="1_r6ox7"]
 [ext_resource type="Script" uid="uid://dk1gulcedlwn2" path="res://Scripts/Item.gd" id="2_0opuc"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_ybcbw"]
 [ext_resource type="Resource" uid="uid://b2epufj43brc2" path="res://Data/Items/Boots.tres" id="5_4ylfx"]
 [ext_resource type="Resource" uid="uid://rgdpjvccyqxo" path="res://Data/Items/Wings.tres" id="6_0rh1k"]
+[ext_resource type="PackedScene" uid="uid://cm64o52ddwe68" path="res://Scenes/ReusableScenes/PlayerCharacterModel.tscn" id="8_nhtf2"]
 [ext_resource type="PackedScene" uid="uid://cfsjmitq7syj1" path="res://Scenes/player_hud.tscn" id="11_tnt00"]
 
 [sub_resource type="Resource" id="Resource_ybcbw"]
@@ -30,10 +31,6 @@ metadata/_custom_type_script = "uid://dvw1qyqbvhis8"
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4uvp2"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_r6ox7"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_r2qbw"]
-
 [sub_resource type="Resource" id="Resource_byofs"]
 script = ExtResource("4_ybcbw")
 duration = 1.0
@@ -51,16 +48,18 @@ shape = SubResource("CapsuleShape3D_4uvp2")
 
 [node name="Mesh" type="Node3D" parent="."]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh"]
-mesh = SubResource("CapsuleMesh_r6ox7")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/MeshInstance3D"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.227137, 0.366409)
-mesh = SubResource("BoxMesh_r2qbw")
-
 [node name="WallClimbCheck" type="RayCast3D" parent="Mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.201014, 0.519814)
 target_position = Vector3(0, 0, 2.5)
+
+[node name="PlayerCharacter2" parent="Mesh" instance=ExtResource("8_nhtf2")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -0.000366211, -0.997864, -0.000488281)
+
+[node name="StickPointHolder" type="Node3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.51977)
+
+[node name="StickPoint" type="Node3D" parent="Mesh/StickPointHolder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.51977)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 physics_interpolation_mode = 1

@@ -8,6 +8,8 @@ class_name Player extends RPGActor
 @onready var camera: Camera3D = $Camera3D
 @onready var meditation_timer: Timer = $MeditationTimer
 @onready var WallClimbCheck: RayCast3D = $Mesh/WallClimbCheck
+@onready var StickPointHolder: Node3D = $Mesh/StickPointHolder
+@onready var StickPoint: Node3D = $Mesh/StickPointHolder/StickPoint
 @onready var pcam: PhantomCamera3D = $ThirdPartyCam
 @onready var CharacterHolder: Node3D = $Mesh
 @onready var HUD: PlayerHUD = $PlayerHUD
@@ -86,8 +88,13 @@ func _physics_process(delta):
 	# Finalize Movement -- Moved from Unhandled Input
 	if mDir and !isMeditating:
 		if isClimbing:
-			velocity.x = mDir.x * climb_speed   + ElementalAreaInfluence().x
-			velocity.y = - mDir.z * climb_speed + ElementalAreaInfluence().y
+			# PLEASE STICK TO THE WALL -- BROKED!
+			# StickPointHolder.global_transform.origin=WallClimbCheck.get_collision_point()
+			# self.global_transform.origin.x = StickPoint.global_transform.origin.x
+			# self.global_transform.origin.z = StickPoint.global_transform.origin.z
+			
+			velocity.x = mDir.x * climb_speed   #+ ElementalAreaInfluence().x
+			velocity.y = - mDir.z * climb_speed #+ ElementalAreaInfluence().y
 			if jumped: velocity.y+=climb_speed
 			# Stamina.x -= velocity.length() / 64
 		else:
@@ -233,8 +240,9 @@ func _unhandled_input(event):
 	input_dir = Input.get_vector("mv_lt", "mv_rt", "mv_fw", "mv_bk")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if isClimbing:
-		var rot = - (atan2(WallClimbCheck.get_collision_normal().z, WallClimbCheck.get_collision_normal().x) - PI / 2)
+		var rot = -(atan2(WallClimbCheck.get_collision_normal().z, WallClimbCheck.get_collision_normal().x) - PI / 2)
 		#CharacterHolder.rotation.y = rot # Doesnt work.
+		#CharacterHolder.look_at(-WallClimbCheck.get_collision_point())
 		#CharacterHolder.rotation.y = (atan2(-WallClimbCheck.get_collision_normal().z, -WallClimbCheck.get_collision_normal().x)-PI/2) # Doesnt work.
 		mDir = direction.rotated(Vector3.UP, rot).normalized()
 	else:
