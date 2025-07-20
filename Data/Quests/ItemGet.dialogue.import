@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://c36l5ncqq508u"
+path="res://.godot/imported/ItemGet.dialogue-dfc3d5aefbc77dece7b0cc5d9007204c.tres"
+
+[deps]
+
+source_file="res://Data/Quests/ItemGet.dialogue"
+dest_files=["res://.godot/imported/ItemGet.dialogue-dfc3d5aefbc77dece7b0cc5d9007204c.tres"]
+
+[params]
+
+defaults=true

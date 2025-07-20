@@ -1,67 +1,73 @@
 ~ start
 if _GameManager.Quests['Earth']==0: 
 	=> QuestIntro
-if _GameManager.Quests['Earth']==1 and !_GameManager.player.PlayerHasItem('Drums'):
+if _GameManager.Quests['Earth']==1 and !_GameManager.player.PlayerHasRequestedItem():
 	=> QuestMidway
-if _GameManager.Quests['Earth']==1 and _GameManager.player.PlayerHasItem('Drums'):
+if _GameManager.Quests['Earth']==1 and _GameManager.player.PlayerHasRequestedItem():
 	=> QuestCompletion
 if _GameManager.Quests['Earth']==2: 
 	=> PostQuest
 => END
 
 ~ QuestIntro
-Fae of Earth: Hello... I've never seen you around here before... 
-Fae of Earth: Have you perhaps seen a Drums around your travels?
-Fae of Earth: I don't remember where I left my Tambor
-Fae of Earth: That was such a long time ago, I  feel awful that I can't find it.
-Fae of Earth: Would you please tell me if you see a Drums in your travels?
-- Yes => QuestStart
+Fae of Earth: Oh! Merry meet, traveler.
+Fae of Earth: Have you perhaps seen a Drum around your travels?
+Fae of Earth: I was inspired by the other Fae and figured I'd try creating, while waiting.
+Fae of Earth: You see, unlike other Fae, I am from here. I carry with me Wisdom of the Earth.
+Fae of Earth: As such, I'd like to use a Drum, but I cannot move as freely, at least not yet..
+- Help look for a Drum => QuestStart
 - Not Yet
-	Fae of Earth: I understand...
-	Fae of Earth: I have to keep looking, but I'm having a hard time.. 
-	Fae of Earth: If you find it, All I can offer you is a canoe.
+	Fae of Earth: If you see one, feel free to tell me
+	Fae of Earth: I will, eventually, reach it.
+	Fae of Earth: If you bring one, I can offer some Grip Gloves in return.
 	
 => END
 
 ~ QuestStart
-Fae of Earth: You will?!
-Fae of Earth: Oh thank you so much!
-Fae of Earth: If you can help me find it, I'd be so grateful...
-Fae of Earth: Last time I saw it, I was by the beach over to the East.
-Fae of Earth: I think it should be near a river..
+Fae of Earth: Oh, you'll help me obtain one? 
+Fae of Earth: You have my gratitude.
+Fae of Earth: I asked the Earth for Drum, as it's one of her intrsuments.
+Fae of Earth: I assume, should my wish been granted, it would be around here.
 set _GameManager.Quests['Earth']=1
 => END
 
 ~ QuestMidway
-Fae of Earth: Have you seen the Drums anywhere?
-Fae of Earth: I'm still trying to look for it...
-Fae of Earth: Last time I saw it, I was by the beach over to the East.
-Fae of Earth: Do you think it might still be around?
-Fae of Earth: If yo find it, please let me know.
-Fae of Earth: If you find it, All I can offer you is a canoe.
+Fae of Earth: Merry meet, traveler.
+Fae of Earth: How goes your quest? Have you been able to get closer to goal?
+Fae of Earth: I hope you can get there soon enough.
+Fae of Earth: Oh, the Drums? 
+Fae of Earth: By all means, take your time.
+Fae of Earth: However, if you can bring it, I can offer some Grip Gloves in return.
 => END
 
 ~ QuestCompletion
-Fae of Earth: Have you seen the Drums anywhere?
-Fae of Earth: What's that? You found it?!
-Fae of Earth: Oh thank heavens!! I was terrified I'd lever see it again.
-Fae of Earth: This was given to me by a dear friend a long time ago.
-Fae of Earth: Now then, a just give and take. 
-Fae of Earth: Something precious, for something useful.
-Fae of Earth: A Canoe made of wood. I made it thinking of said friend.
-Fae of Earth: But then I realized, I made it too small.
-Fae of Earth: But It's most likely perfect for you.
+Fae of Earth: Merry meet, traveler.
+Fae of Earth: You know, the more I look at you... 
+Fae of Earth: The more I reminisce of those that have come before you.
+Fae of Earth: Oh, what's this? 
+Fae of Earth: By Gaia! You've actually brought me a drum!
+do _GameManager.RemoveActiveInteractiveRequestItem()
+Fae of Earth: Thank you, from the bottom of my heart, traveler.
+Fae of Earth: All I can give in return, as I said, are these Grip Gloves.
+Fae of Earth: I was told others have used them to climb great heights.
+Fae of Earth: I believe they can serve you better than they'll serve me.
 # TODO: Give Item
-You have Obtained The Canoe!
-| This Canoe can help you traverse bigger bodies of Earth
-Fae of Earth: Safe travels
+do _GameManager.AddActiveInteractiveItem()
+You have Obtained The Power Grip Gloves!
+| Forged by Generations, they can help you climb, but how will you leave your mark?
+Fae of Earth: Merry meet, merry part, and merry meet again, traveler.
 => END
 
 ~ PostQuest
-Fae of Earth: Wandering Spirit, this is my wisdom
-% Fae of Earth: Earth teaches us to retreat and Heal, specially wounds we don't often show. 
-% Fae of Earth: Earth teaches us that it's important to feel all emotion, and allow yourself to feel deeply.
-% Fae of Earth: Canoa-te esta.
-% Fae of Earth: Tu Cara es una Canoa.
-Fae of Earth: Meditation is a great way to put this into practice
+Fae of Earth: Merry meet, traveler. As part of the Earth, I'd like to give you some wisdom.
+% Fae of Earth: The Earth asks us to embody her, to be resilient, patient and consistent. 
+% 
+	Fae of Earth: To embody the Earth, is to forge stability, to have discilipline, 
+	Fae of Earth: But it is also to nurture, yourself and those who may need it around you.
+% 
+	Fae of Earth: If all is to come from, and return to the Earth, then best we can do is to leave a positive mark.
+	Fae of Earth: For as small as it may be, you will never know the lengths of your legacy.
+	Fae of Earth: So balance yourself, and grow into your best self, and help grow.
+Fae of Earth: Meditate, Ground yourself, listen to your breathing, listen to your heart, beating like a Drum.
+Fae of Earth: Doing so, enter to your depths, and work towards balance.
 => END

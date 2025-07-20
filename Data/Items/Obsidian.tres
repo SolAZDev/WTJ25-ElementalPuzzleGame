@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://bgqvd17tyqfvu"]
+
+[ext_resource type="Texture2D" uid="uid://bf34q0abx8t5b" path="res://Assets/Sprites/saphir.svg" id="1_ptl5f"]
+[ext_resource type="Script" uid="uid://dk1gulcedlwn2" path="res://Scripts/Item.gd" id="2_ue5nl"]
+
+[resource]
+script = ExtResource("2_ue5nl")
+Icon = ExtResource("1_ptl5f")
+Name = "Obsidian Shard"
+Description = "A Crystal, used for protection, but also to look into the self."
+metadata/_custom_type_script = "uid://dk1gulcedlwn2"

@@ -1,67 +1,72 @@
 ~ start
 if _GameManager.Quests['Water']==0: 
 	=> QuestIntro
-if _GameManager.Quests['Water']==1 and !_GameManager.player.PlayerHasItem('Pendant'):
+if _GameManager.Quests['Water']==1 and !_GameManager.player.PlayerHasRequestedItem():
 	=> QuestMidway
-if _GameManager.Quests['Water']==1 and _GameManager.player.PlayerHasItem('Pendant'):
+if _GameManager.Quests['Water']==1 and _GameManager.player.PlayerHasRequestedItem():
 	=> QuestCompletion
 if _GameManager.Quests['Water']==2: 
 	=> PostQuest
 => END
 
 ~ QuestIntro
-Fae of Water: Hello... I've never seen you around here before... 
-Fae of Water: Have you perhaps seen a pendant around your travels?
-Fae of Water: I'm afraid I have left the pendant that a dear friend gave to me.
-Fae of Water: That was such a long time ago, I  feel awful that I can't find it.
-Fae of Water: Would you please tell me if you see a pendant in your travels?
+Undine of Water: Hello... I've never seen you around here before... 
+Undine of Water: Have you perhaps seen a pendant around your travels?
+Undine of Water: I'm afraid I have left the pendant that a dear friend gave to me.
+Undine of Water: That was such a long time ago, I  feel awful that I can't find it.
+Undine of Water: Would you please tell me if you see a pendant in your travels?
 - Yes => QuestStart
 - Not Yet
-	Fae of Water: I understand...
-	Fae of Water: I have to keep looking, but I'm having a hard time.. 
-	Fae of Water: If you find it, All I can offer you is a canoe.
+	Undine of Water: I understand.
+	Undine of Water: I have to keep looking, but I'm having a hard time.
+	Undine of Water: If you find it, All I can offer you is a canoe.
 	
 => END
 
 ~ QuestStart
-Fae of Water: You will?!
-Fae of Water: Oh thank you so much!
-Fae of Water: If you can help me find it, I'd be so grateful...
-Fae of Water: Last time I saw it, I was by the beach over to the East.
-Fae of Water: I think it should be near a river..
+Undine of Water: You will?!
+Undine of Water: Oh thank you so much!
+Undine of Water: If you can help me find it, I'd be so grateful...
+Undine of Water: Last time I saw it, I had arrived at these waters...
+Undine of Water: I think it should be near a river.
 set _GameManager.Quests['Water']=1
 => END
 
 ~ QuestMidway
-Fae of Water: Have you seen the pendant anywhere?
-Fae of Water: I'm still trying to look for it...
-Fae of Water: Last time I saw it, I was by the beach over to the East.
-Fae of Water: Do you think it might still be around?
-Fae of Water: If yo find it, please let me know.
-Fae of Water: If you find it, All I can offer you is a canoe.
+Undine of Water: Have you seen the pendant anywhere?
+Undine of Water: I'm still trying to look for it.
+Undine of Water: Last time I saw it, I had arrived at these waters...
+Undine of Water: Do you think it might still be around?
+Undine of Water: If you find it, please let me know.
+Undine of Water: If you find it, All I can offer you is a canoe.
 => END
 
 ~ QuestCompletion
-Fae of Water: Have you seen the pendant anywhere?
-Fae of Water: What's that? You found it?!
-Fae of Water: Oh thank heavens!! I was terrified I'd lever see it again.
-Fae of Water: This was given to me by a dear friend a long time ago.
-Fae of Water: Now then, a just give and take. 
-Fae of Water: Something precious, for something useful.
-Fae of Water: A Canoe made of wood. I made it thinking of said friend.
-Fae of Water: But then I realized, I made it too small.
-Fae of Water: But It's most likely perfect for you.
+Undine of Water: Have you seen the pendant anywhere?
+Undine of Water: What's that? You found it?!
+Undine of Water: Oh thank heavens!! I was terrified I'd lever see it again.
+do _GameManager.RemoveActiveInteractiveRequestItem()
+Undine of Water: This was given to me by a dear friend a long time ago.
+Undine of Water: Now then, a just give and take. 
+Undine of Water: Something precious, for something useful.
+Undine of Water: A Canoe made of wood. I made it thinking of said friend.
+Undine of Water: But then I realized, I made it too small.
+Undine of Water: But It's most likely perfect for you.
 # TODO: Give Item
+set _GameManager.Quests['Water']=2
+do _GameManager.AddActiveInteractiveItem()
 You have Obtained The Canoe!
 | This Canoe can help you traverse bigger bodies of water
-Fae of Water: Safe travels
+Undine of Water: Safe travels, wanderer. May your heart and cup always be full.
 => END
 
 ~ PostQuest
-Fae of Water: Wandering Spirit, this is my wisdom
-% Fae of Water: Water teaches us to retreat and Heal, specially wounds we don't often show. 
-% Fae of Water: Water teaches us that it's important to feel all emotion, and allow yourself to feel deeply.
-% Fae of Water: Canoa-te esta.
-% Fae of Water: Tu Cara es una Canoa.
-Fae of Water: Meditation is a great way to put this into practice
+Undine of Water: Wandering Spirit, this is my wisdom
+% Undine of Water: Water teaches us to retreat and Heal, specially wounds we don't often show. 
+% Undine of Water: Water teaches us that it's important to feel all emotion, and allow yourself to feel deeply.
+% Undine of Water: When you find yourself emotionally stranded, Water teaches to swim into the depths of the true heart.
+% 
+	Undine of Water: Water teaches about working with the self, though it can be incredibly heavy, there is nothing to be afraid of.
+	Undine of Water: After all, at the bottom of it all, the one true thing you'll find, is your true self, regardless of shadow.
+Undine of Water: Meditation is a great way to put this into practice
 => END

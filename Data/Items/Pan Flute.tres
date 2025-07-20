@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://3n148rm8a68u"]
+
+[ext_resource type="Texture2D" uid="uid://w65cyc3pl7aj" path="res://Assets/Sprites/pan-flute.svg" id="1_boc26"]
+[ext_resource type="Script" uid="uid://dk1gulcedlwn2" path="res://Scripts/Item.gd" id="2_prutg"]
+
+[resource]
+script = ExtResource("2_prutg")
+Icon = ExtResource("1_boc26")
+Name = "Pan Flute"
+Description = "A Flute named after a deity,"
+metadata/_custom_type_script = "uid://dk1gulcedlwn2"

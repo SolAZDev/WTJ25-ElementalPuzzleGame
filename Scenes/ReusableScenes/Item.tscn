@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cduq3qcxyh1db"]
+
+[ext_resource type="Script" uid="uid://uecf5u3pgnjh" path="res://Scripts/InteractableArea.gd" id="1_1mkxy"]
+[ext_resource type="Texture2D" uid="uid://df0e0rn5pt8w5" path="res://Assets/Sprites/wing-cloak.svg" id="2_u5hxe"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_u5hxe"]
+radius = 2.0
+
+[node name="InteractableArea" type="Area3D" node_paths=PackedStringArray("sprite")]
+script = ExtResource("1_1mkxy")
+sprite = NodePath("Sprite3D")
+metadata/_custom_type_script = "uid://uecf5u3pgnjh"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_u5hxe")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+billboard = 1
+texture = ExtResource("2_u5hxe")

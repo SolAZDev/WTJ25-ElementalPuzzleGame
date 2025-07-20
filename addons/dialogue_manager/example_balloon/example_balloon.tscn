@@ -5,11 +5,7 @@
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
-bg_color = Color(0, 0, 0, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
+bg_color = Color(0, 0, 0, 0.784314)
 border_color = Color(0.329412, 0.329412, 0.329412, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
@@ -17,35 +13,21 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ri4m3"]
-bg_color = Color(0.121569, 0.121569, 0.121569, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(1, 1, 1, 1)
+bg_color = Color(0.121569, 0.121569, 0.121569, 0.784314)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e0njw"]
-bg_color = Color(0, 0, 0, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0.6, 0.6, 0.6, 1)
+bg_color = Color(0, 0, 0, 0.784314)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkmqt"]
-bg_color = Color(0, 0, 0, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
+bg_color = Color(0, 0, 0, 0.784314)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
@@ -53,6 +35,7 @@ corner_radius_bottom_left = 5
 
 [sub_resource type="Theme" id="Theme_qq3yp"]
 default_font_size = 20
+Button/colors/font_disabled_color = Color(1, 1, 1, 0.5)
 Button/styles/disabled = SubResource("StyleBoxFlat_spyqn")
 Button/styles/focus = SubResource("StyleBoxFlat_ri4m3")
 Button/styles/hover = SubResource("StyleBoxFlat_e0njw")
@@ -83,7 +66,8 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -219.0
+offset_top = -174.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -107,12 +91,16 @@ bbcode_enabled = true
 text = "Character"
 fit_content = true
 scroll_active = false
+horizontal_alignment = 1
 
 [node name="DialogueLabel" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_a8ve6")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 text = "Dialogue..."
+horizontal_alignment = 1
+vertical_alignment = 1
+pause_at_characters = ",.?!"
 
 [node name="ResponsesMenu" type="VBoxContainer" parent="Balloon" node_paths=PackedStringArray("response_template")]
 unique_name_in_owner = true

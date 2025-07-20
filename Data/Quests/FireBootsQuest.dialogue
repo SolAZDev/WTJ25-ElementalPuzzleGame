@@ -1,67 +1,70 @@
 ~ start
 if _GameManager.Quests['Fire']==0: 
 	=> QuestIntro
-if _GameManager.Quests['Fire']==1 and !_GameManager.player.PlayerHasItem('Pendant'):
+if _GameManager.Quests['Fire']==1 and !_GameManager.player.PlayerHasRequestedItem():
 	=> QuestMidway
-if _GameManager.Quests['Fire']==1 and _GameManager.player.PlayerHasItem('Pendant'):
+if _GameManager.Quests['Fire']==1 and _GameManager.player.PlayerHasRequestedItem():
 	=> QuestCompletion
 if _GameManager.Quests['Fire']==2: 
 	=> PostQuest
 => END
 
 ~ QuestIntro
-Fae of Fire: Hello... I've never seen you around here before... 
-Fae of Fire: Have you perhaps seen a pendant around your travels?
-Fae of Fire: I'm afraid I have left the pendant that a dear friend gave to me.
-Fae of Fire: That was such a long time ago, I  feel awful that I can't find it.
-Fae of Fire: Would you please tell me if you see a pendant in your travels?
+Fae of Fire: Merry meet, traveler.
+Fae of Fire: I believe you're on your way to the top of the mountain, right?
+Fae of Fire: I heard that lava had pass through here long ago. 
+Fae of Fire: And I'm certain Obsidian can be found here. I'm looking for it.
+Fae of Fire: If you find one, would you tell me?
 - Yes => QuestStart
 - Not Yet
-	Fae of Fire: I understand...
-	Fae of Fire: I have to keep looking, but I'm having a hard time.. 
-	Fae of Fire: If you find it, All I can offer you is a canoe.
-	
+	Fae of Fire: That's alright.
+	Fae of Fire: I genuinely shouldn't expect others to take this heat.
+	Fae of Fire: It's almost reminiscent of Puerto Rican Summer.
 => END
 
 ~ QuestStart
-Fae of Fire: You will?!
-Fae of Fire: Oh thank you so much!
-Fae of Fire: If you can help me find it, I'd be so grateful...
-Fae of Fire: Last time I saw it, I was by the beach over to the East.
-Fae of Fire: I think it should be near a river..
+Fae of Fire: You would do that for me, considering the heat?
+Fae of Fire: You have my heartfelt gratitude.
+Fae of Fire: Quite Frankly, Obsidian could be found anywhere around here.
+Fae of Fire: Considering the lava went south.
+Fae of Fire: If you happen to find one, I can trade you some boots.
 set _GameManager.Quests['Fire']=1
 => END
 
 ~ QuestMidway
-Fae of Fire: Have you seen the pendant anywhere?
-Fae of Fire: I'm still trying to look for it...
-Fae of Fire: Last time I saw it, I was by the beach over to the East.
-Fae of Fire: Do you think it might still be around?
-Fae of Fire: If yo find it, please let me know.
-Fae of Fire: If you find it, All I can offer you is a canoe.
+Fae of Fire: How are you holding up?
+Fae of Fire: I'm still wandering about the eruption and crystalization.
+Fae of Fire: Quite Frankly, Obsidian could be found anywhere around here.
+Fae of Fire: Considering the lava went south.
+Fae of Fire: If you happen to find one, I can trade you some boots.
 => END
 
 ~ QuestCompletion
-Fae of Fire: Have you seen the pendant anywhere?
-Fae of Fire: What's that? You found it?!
-Fae of Fire: Oh thank heavens!! I was terrified I'd lever see it again.
-Fae of Fire: This was given to me by a dear friend a long time ago.
-Fae of Fire: Now then, a just give and take. 
-Fae of Fire: Something precious, for something useful.
-Fae of Fire: A Canoe made of wood. I made it thinking of said friend.
-Fae of Fire: But then I realized, I made it too small.
-Fae of Fire: But It's most likely perfect for you.
+Fae of Fire: How are you holding up?
+Fae of Fire: What? Y-you found Obsidian?
+Fae of Fire: How in Djin's good name did you manage to find one so quickly?
+Fae of Fire: And with this heat? I'm impressed! Wait, what? You don't feel that heat?
+Fae of Fire: Clearly you need to go to Puerto Rico or Japan in the Summer.
+Fae of Fire: I personally find the Heat revitalizing... I'm of the Fire, of course.
+Fae of Fire: That being said, I'm a Fae of my word; I'll trade you.
+do _GameManager.RemoveActiveInteractiveRequestItem()
+Fae of Fire: That Obsidian, for some Weatherproof Boots.
+Fae of Fire: I traded it with a Human. It should help make your travels a bit better
 # TODO: Give Item
-You have Obtained The Canoe!
-| This Canoe can help you traverse bigger bodies of Fire
-Fae of Fire: Safe travels
+do _GameManager.AddActiveInteractiveItem()
+You have Obtained The Weatherproof Boots!
+| Tempatures shouldn't affect you as much. If only Humans had it that eaasy.
+Fae of Fire: Merry part, traveler. May your flame remain ever-stronger.
 => END
 
 ~ PostQuest
-Fae of Fire: Wanderer, don't forget this wisdom.
+Fae of Fire: Merry meet, again, traveler. Allow me to give you some wisdom.
 % Fae of Fire: Fire teaches us that we ought to toss what doesn't serve us into the fire, to make space for better things
 % Fae of Fire: Fire teaches us that there ought to be a balance between passion, and what we want to create.
-% Fae of Fire: My guy, tu estas bien? Con estos calores, a ti no te dan ganas de bañarte?
-% Fae of Fire: La de agua me dijo que te dijera que tu cara es una canoa.
-Fae of Fire: Meditation is a great way to put this into practice
+% Fae of Fire: Fire is fierce, it is passionate and courageus, it can even bring about Sacred Anger, but balance what's important.
+% 
+	Fae of Fire: Remember that when everything is lost, you still have you. Never let your flame die out. 
+	Fae of Fire: Use that internal fire, use it as your courage and strength, with optimism!
+	Fae of Fire: When you're balanced, it'll help light your way. Never forget that.
+Fae of Fire: Also, Meditating by fire is cozy. It can also help with your Chakras.
 => END

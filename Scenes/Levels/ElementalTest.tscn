@@ -1,8 +1,16 @@
-[gd_scene load_steps=14 format=3 uid="uid://dq0qop6nnuluj"]
+[gd_scene load_steps=24 format=3 uid="uid://dq0qop6nnuluj"]
 
 [ext_resource type="Script" uid="uid://cspwfl7r604k0" path="res://Scripts/ClimbableArea.gd" id="1_h0cmc"]
 [ext_resource type="Script" uid="uid://e2ds0rt220tr" path="res://Scripts/ElementalArea.gd" id="1_vhasj"]
 [ext_resource type="PackedScene" uid="uid://dpmo36kktcvou" path="res://Scenes/ReusableScenes/Player.tscn" id="2_vhasj"]
+[ext_resource type="PackedScene" uid="uid://oil1uon7jccl" path="res://Scenes/ReusableScenes/NPC.tscn" id="4_bnv78"]
+[ext_resource type="Resource" uid="uid://beltxa1ul1hcs" path="res://Data/Items/Canoe.tres" id="5_8b4ws"]
+[ext_resource type="Resource" uid="uid://bh5vn0cvw8q14" path="res://Data/Items/Pendant.tres" id="6_ix67k"]
+[ext_resource type="Resource" uid="uid://d1701imffgx8a" path="res://Data/Quests/WaterStart.dialogue" id="7_fn1dc"]
+[ext_resource type="PackedScene" uid="uid://cduq3qcxyh1db" path="res://Scenes/ReusableScenes/Item.tscn" id="8_ix67k"]
+[ext_resource type="Shader" uid="uid://c2swvhaw6lgie" path="res://addons/Godot-MToon-Shader/mtoon_outline.gdshader" id="8_sqooj"]
+[ext_resource type="Shader" uid="uid://btfxt7iftmr1r" path="res://addons/Godot-MToon-Shader/mtoon.gdshader" id="9_eesq6"]
+[ext_resource type="Resource" uid="uid://c36l5ncqq508u" path="res://Data/Quests/ItemGet.dialogue" id="9_fn1dc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h0cmc"]
 size = Vector3(3, 10, 1)
@@ -37,6 +45,75 @@ background_mode = 2
 sky = SubResource("Sky_h0cmc")
 ambient_light_source = 3
 ambient_light_color = Color(0.93845, 0.93845, 0.93845, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uo1e1"]
+render_priority = 0
+shader = ExtResource("8_sqooj")
+shader_parameter/_AlphaCutoutEnable = 0.0
+shader_parameter/_Cutoff = 0.5
+shader_parameter/_Color = Color(0.0901961, 0.698039, 1, 1)
+shader_parameter/_ShadeColor = Color(0.0477, 0.369233, 0.53, 1)
+shader_parameter/_MainTex_ST = Vector4(1, 1, 0, 0)
+shader_parameter/_BumpScale = 1.0
+shader_parameter/_ReceiveShadowRate = 1.0
+shader_parameter/_ShadingGradeRate = 1.0
+shader_parameter/_ShadeShift = 0.0
+shader_parameter/_ShadeToony = 0.9
+shader_parameter/_LightColorAttenuation = 0.0
+shader_parameter/_IndirectLightIntensity = 0.1
+shader_parameter/_RimColor = Color(0, 0, 0, 1)
+shader_parameter/_RimLightingMix = 0.0
+shader_parameter/_RimFresnelPower = 1.0
+shader_parameter/_RimLift = 0.0
+shader_parameter/_MatcapColor = Color(0, 0, 0, 1)
+shader_parameter/_EmissionColor = Color(0, 0, 0, 1)
+shader_parameter/_EmissionMultiplier = 1.0
+shader_parameter/_OutlineWidthMode = 1.0
+shader_parameter/_OutlineWidth = 0.5
+shader_parameter/_OutlineScaledMaxDistance = 1.0
+shader_parameter/_OutlineColorMode = 0.0
+shader_parameter/_OutlineColor = Color(0, 0, 0, 1)
+shader_parameter/_OutlineLightingMix = 0.0
+shader_parameter/_UvAnimScrollX = 0.0
+shader_parameter/_UvAnimRotation = 0.0
+shader_parameter/_UvAnimScrollY = 0.0
+shader_parameter/_DebugMode = 0.0
+shader_parameter/_MToonVersion = 33.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xcigl"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_uo1e1")
+shader = ExtResource("9_eesq6")
+shader_parameter/_AlphaCutoutEnable = 0.0
+shader_parameter/_Cutoff = 0.5
+shader_parameter/_Color = Color(0.0901961, 0.698039, 1, 1)
+shader_parameter/_ShadeColor = Color(0.0477, 0.369233, 0.53, 1)
+shader_parameter/_MainTex_ST = Vector4(1, 1, 0, 0)
+shader_parameter/_BumpScale = 1.0
+shader_parameter/_ReceiveShadowRate = 1.0
+shader_parameter/_ShadingGradeRate = 1.0
+shader_parameter/_ShadeShift = 0.0
+shader_parameter/_ShadeToony = 0.9
+shader_parameter/_LightColorAttenuation = 0.0
+shader_parameter/_IndirectLightIntensity = 0.1
+shader_parameter/_RimColor = Color(0, 0, 0, 1)
+shader_parameter/_RimLightingMix = 0.0
+shader_parameter/_RimFresnelPower = 1.0
+shader_parameter/_RimLift = 0.0
+shader_parameter/_MatcapColor = Color(0, 0, 0, 1)
+shader_parameter/_EmissionColor = Color(0, 0, 0, 1)
+shader_parameter/_EmissionMultiplier = 1.0
+shader_parameter/_OutlineWidthMode = 1.0
+shader_parameter/_OutlineWidth = 0.5
+shader_parameter/_OutlineScaledMaxDistance = 1.0
+shader_parameter/_OutlineColorMode = 0.0
+shader_parameter/_OutlineColor = Color(0, 0, 0, 1)
+shader_parameter/_OutlineLightingMix = 0.0
+shader_parameter/_UvAnimScrollX = 0.0
+shader_parameter/_UvAnimRotation = 0.0
+shader_parameter/_UvAnimScrollY = 0.0
+shader_parameter/_DebugMode = 0.0
+shader_parameter/_MToonVersion = 33.0
 
 [node name="Node3D" type="Node3D"]
 
@@ -108,4 +185,22 @@ transform = Transform3D(0.5, -0.75, 0.433013, 0, 0.5, 0.866025, -0.866025, -0.43
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_j1njh")
 
+[node name="WaterFae" parent="." instance=ExtResource("4_bnv78")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 13.0213, 1.08186, -7.95097)
+item = ExtResource("5_8b4ws")
+req_item = ExtResource("6_ix67k")
+dialogue = ExtResource("7_fn1dc")
+
+[node name="Plane" parent="WaterFae/StaticBody3D/NPC" index="0"]
+transform = Transform3D(0.999994, 0.00336348, -0.0011869, -0.00336588, 0.999992, -0.00202303, 0.00118009, 0.002027, 0.999997, 0, 0, 0)
+surface_material_override/0 = SubResource("ShaderMaterial_xcigl")
+
+[node name="InteractableArea" parent="." instance=ExtResource("8_ix67k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.7594, 1.37, -8.77173)
+item = ExtResource("6_ix67k")
+dialogue = ExtResource("9_fn1dc")
+
 [editable path="Player"]
+[editable path="WaterFae"]
+[editable path="WaterFae/StaticBody3D/NPC"]
+[editable path="InteractableArea"]

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://bh5vn0cvw8q14"]
+
+[ext_resource type="Texture2D" uid="uid://dcb62o2up8wjq" path="res://Assets/Sprites/emerald-necklace.svg" id="1_84ofo"]
+[ext_resource type="Script" uid="uid://dk1gulcedlwn2" path="res://Scripts/Item.gd" id="2_1f04t"]
+
+[resource]
+script = ExtResource("2_1f04t")
+Icon = ExtResource("1_84ofo")
+Name = "Amethyst Pendant"
+Description = "A Pendant with a Crystal of Emotion, Calm and Connection. "
+metadata/_custom_type_script = "uid://dk1gulcedlwn2"

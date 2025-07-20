@@ -86,3 +86,5 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 [node name="MeditationTimer" type="Timer" parent="."]
 
 [node name="PlayerHUD" parent="." instance=ExtResource("11_tnt00")]
+
+[connection signal="timeout" from="MeditationTimer" to="." method="GroundingAndMeditation"]

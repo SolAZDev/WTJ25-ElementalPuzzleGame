@@ -141,6 +141,7 @@ func ElementalAreaInfluence() -> Vector3:
 ### Basically, Healing and Affinities
 func GroundingAndMeditation():
 	# I lowkey wish life were this easy.
+	print('Meditate Cycle')
 	meditation_timer.start()
 	timesBreathCycled += 1
 	var healing = 1;
@@ -167,6 +168,7 @@ func GroundingAndMeditation():
 					if deepMeditation:
 						affinities.Sacral += 1
 						affinities.Heart += 1
+						Energetic_Twilight += .1 * (float(affinities.Sacral) / 4 + float(affinities.Heart) / 4)
 				Utils.Element.EARTH:
 					affinities.Earth += 1
 					if deepMeditation:
@@ -249,8 +251,9 @@ func _unhandled_input(event):
 		#else: activeItem=-1
 	
 	# Attack is now Interact
-	if Input.is_action_just_pressed("attack"): 
+	if Input.is_action_just_pressed("use"): 
 		if nearest_interactable !=null:
+			nearest_interactable.Interact()
 			if nearest_interactable.isPerson: pass
 			elif !nearest_interactable.isPerson and nearest_interactable.item!=null: pass
 	# Meditate/Ground

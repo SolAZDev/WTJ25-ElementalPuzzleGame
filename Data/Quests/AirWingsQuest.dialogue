@@ -1,67 +1,65 @@
 ~ start
 if _GameManager.Quests['Air']==0: 
 	=> QuestIntro
-if _GameManager.Quests['Air']==1 and !_GameManager.player.PlayerHasItem('Pendant'):
+if _GameManager.Quests['Air']==1 and !_GameManager.player.PlayerHasRequestedItem():
 	=> QuestMidway
-if _GameManager.Quests['Air']==1 and _GameManager.player.PlayerHasItem('Pendant'):
+if _GameManager.Quests['Air']==1 and _GameManager.player.PlayerHasRequestedItem():
 	=> QuestCompletion
 if _GameManager.Quests['Air']==2: 
 	=> PostQuest
 => END
 
 ~ QuestIntro
-Fae of Air: Hello... I've never seen you around here before... 
-Fae of Air: Have you perhaps seen a pendant around your travels?
-Fae of Air: I'm afraid I have left the pendant that a dear friend gave to me.
-Fae of Air: That was such a long time ago, I  feel awful that I can't find it.
-Fae of Air: Would you please tell me if you see a pendant in your travels?
+Slyph of Air: Oh! Hello. I didn't expect to be seen so easily.
+Slyph of Air: I assume you're a Traveling Fae too? I've seen some around here on my way here.
+Slyph of Air: I came looking for a Pan Flute. It's a lovely Instrument.
+Slyph of Air: I landed here, cause I thought I heard one near by, just playing by the wind alone!
+Slyph of Air: Would you mind helping me look for it? I can trade you a wing cloak.
 - Yes => QuestStart
 - Not Yet
-	Fae of Air: I understand...
-	Fae of Air: I have to keep looking, but I'm having a hard time.. 
-	Fae of Air: If you find it, All I can offer you is a canoe.
+	Slyph of Air: That's fair. I'm sure you've your own quest.
+	Slyph of Air: I'll likely stay here looking for the Pan Flute.
+	Slyph of Air: If you happen to find it, I'll trade you. For a Wing Cloak.
 	
 => END
 
 ~ QuestStart
-Fae of Air: You will?!
-Fae of Air: Oh thank you so much!
-Fae of Air: If you can help me find it, I'd be so grateful...
-Fae of Air: Last time I saw it, I was by the beach over to the East.
-Fae of Air: I think it should be near a river..
+Slyph of Air: Oh yeah? Thanks a lot!
+Slyph of Air: A Pan Flute looks like a buncha tubes held together with string.
+Slyph of Air: When played, it makes a lovely sound.
+Slyph of Air: Anyways, I heard it near...ish. Try looking around?
 set _GameManager.Quests['Air']=1
 => END
 
 ~ QuestMidway
-Fae of Air: Have you seen the pendant anywhere?
-Fae of Air: I'm still trying to look for it...
-Fae of Air: Last time I saw it, I was by the beach over to the East.
-Fae of Air: Do you think it might still be around?
-Fae of Air: If yo find it, please let me know.
-Fae of Air: If you find it, All I can offer you is a canoe.
+Slyph of Air: Heyo! Did you happen to find the Pan Flute?
+Slyph of Air: I'm still to looking for it, thoguh I'm using my ears, ha ha.
+Slyph of Air: As silly as it sounds, I can hear it around here. But I can't find it.
+Slyph of Air: If you happen to find it, I'll trade you. For a Wing Cloak.
 => END
 
 ~ QuestCompletion
-Fae of Air: Have you seen the pendant anywhere?
-Fae of Air: What's that? You found it?!
-Fae of Air: Oh thank heavens!! I was terrified I'd lever see it again.
-Fae of Air: This was given to me by a dear friend a long time ago.
-Fae of Air: Now then, a just give and take. 
-Fae of Air: Something precious, for something useful.
-Fae of Air: A Canoe made of wood. I made it thinking of said friend.
-Fae of Air: But then I realized, I made it too small.
-Fae of Air: But It's most likely perfect for you.
+Slyph of Air: Heyo! Did you happen to find the Pan Flute?
+Slyph of Air: Eyo?! You Found it!?
+Slyph of Air: Excellent work! I knew it was around here...Somewhere.
+Slyph of Air: I genuinely hope this didn't give you too much trouble.
+Slyph of Air: Everyone back at home love wind instruments. It's one of our languages.
+Slyph of Air: Anyways, as my elders say, fairly take and fairly give.
+do _GameManager.RemoveActiveInteractiveRequestItem()
+Slyph of Air: So here you go, one of our Sylph Specialties!
+Slyph of Air: Your very own Wing Cloak! With this you can travel through wind a lil easier!
 # TODO: Give Item
-You have Obtained The Canoe!
-| This Canoe can help you traverse bigger bodies of Air
-Fae of Air: Safe travels
+do _GameManager.AddActiveInteractiveItem()
+You have Obtained The Wing Cloak!
+| Now you can 'Float' in Wind, and when Falling!
+Slyph of Air: I hope that just as Flutes inspire me, may you find your inspirations and make great discoveries as well!
+Slyph of Air: Wind at your back.
 => END
 
 ~ PostQuest
-Fae of Air: Wandering Spirit, this is my wisdom
-% Fae of Air: Air teaches us to retreat and Heal, specially wounds we don't often show. 
-% Fae of Air: Air teaches us that it's important to feel all emotion, and allow yourself to feel deeply.
-% Fae of Air: Canoa-te esta.
-% Fae of Air: Tu Cara es una Canoa.
-Fae of Air: Meditation is a great way to put this into practice
+Slyph of Air: Wanderer, I'll give you a bit of my Wisdom.
+% Slyph of Air: Air and Wind are the doorway of Spring and Dawn. Use it to create your will through communication.
+% Slyph of Air: Air isn't just an element of speech, it is also of music, scents, and inspiration, and communication. Find your way.
+% Slyph of Air: Just cause Air is also an element of flight, does not mean that the Wing Cloak will let you fly forever, sorry.
+Slyph of Air: Meditating by the Wind is also pretty nifty, try it sometime.
 => END

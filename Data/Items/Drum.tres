@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://c0vkikhegwm57"]
+
+[ext_resource type="Texture2D" uid="uid://g1ddaaxqox31" path="res://Assets/Sprites/djembe.svg" id="1_q8wap"]
+[ext_resource type="Script" uid="uid://dk1gulcedlwn2" path="res://Scripts/Item.gd" id="2_vobxc"]
+
+[resource]
+script = ExtResource("2_vobxc")
+Icon = ExtResource("1_q8wap")
+Name = "Drum"
+Description = "\"Cuando mi tambor suena, mi corazon coje fuerzas, y Boriken se pone contento.\""
+metadata/_custom_type_script = "uid://dk1gulcedlwn2"
