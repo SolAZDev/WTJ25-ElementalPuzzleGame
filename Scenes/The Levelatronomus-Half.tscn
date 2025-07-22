@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://c3s3654f4vihw"]
+[gd_scene load_steps=53 format=3 uid="uid://c3s3654f4vihw"]
 
 [ext_resource type="PackedScene" uid="uid://dpmo36kktcvou" path="res://Scenes/ReusableScenes/Player.tscn" id="1_0u04f"]
 [ext_resource type="Texture2D" uid="uid://dba7biduu31ok" path="res://Assets/Textures/wtj25map_albedo.png" id="2_cvqhj"]
@@ -18,9 +18,12 @@
 [ext_resource type="Shader" uid="uid://btfxt7iftmr1r" path="res://addons/Godot-MToon-Shader/mtoon.gdshader" id="14_qo76q"]
 [ext_resource type="PackedScene" uid="uid://cduq3qcxyh1db" path="res://Scenes/ReusableScenes/Item.tscn" id="15_x0v5d"]
 [ext_resource type="Resource" uid="uid://c36l5ncqq508u" path="res://Data/Quests/ItemGet.dialogue" id="16_0arh2"]
+[ext_resource type="Resource" uid="uid://csdwt0ynsakil" path="res://Data/Quests/EarthGloveQuest.dialogue" id="17_xgbbl"]
+[ext_resource type="Resource" uid="uid://d4bdepg6l0x1p" path="res://Data/Quests/JamEnding.dialogue" id="17_y30h3"]
 [ext_resource type="Terrain3DAssets" uid="uid://cvr24mul7gshc" path="res://Data/Terrain3D/The Levelatronomus Resources.tres" id="17_yumhn"]
 [ext_resource type="Script" uid="uid://cspwfl7r604k0" path="res://Scripts/ClimbableArea.gd" id="19_um0s0"]
 [ext_resource type="Script" uid="uid://e2ds0rt220tr" path="res://Scripts/ElementalArea.gd" id="21_y30h3"]
+[ext_resource type="Material" uid="uid://cso4f2iyuxpmc" path="res://demo/assets/materials/M_crystal_purple.tres" id="22_5ny5d"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vhww3"]
 transparency = 1
@@ -220,6 +223,9 @@ noise = SubResource("FastNoiseLite_8sg4b")
 _shader_parameters = {
 &"bias_distance": 512.0,
 &"blend_sharpness": 0.0,
+&"contour_color": Color(0.85, 0.85, 0.19, 1),
+&"contour_interval": 1.0,
+&"contour_thickness": 1.0,
 &"depth_blur": 0.0,
 &"enable_macro_variation": true,
 &"enable_projection": true,
@@ -235,6 +241,8 @@ _shader_parameters = {
 &"noise_texture": SubResource("NoiseTexture2D_gh2ad"),
 &"projection_threshold": 0.0
 }
+world_background = 0
+show_contours = true
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_qo76q"]
 height = 22.0
@@ -251,12 +259,36 @@ radius = 48.0
 radius = 15.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xgbbl"]
-size = Vector3(129.614, 3, 24)
+size = Vector3(143, 3, 66)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4wnk8"]
+size = Vector3(39, 3.89807, 15.5923)
+
+[sub_resource type="BoxMesh" id="BoxMesh_x4w4x"]
+size = Vector3(45.294, 3, 15.592)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_xgbbl"]
+radius = 48.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5ny5d"]
+size = Vector3(10, 43, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x4w4x"]
+size = Vector3(30, 50, 121)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_4wnk8"]
+radius = 33.975
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_x4w4x"]
+material = ExtResource("3_cvqhj")
+top_radius = 40.0
+bottom_radius = 40.0
 
 [node name="Node3D" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("1_0u04f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 597, 3, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 300, -31)
+base_speed = 15
 
 [node name="LowRef" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -6.955, 2, -2.782)
@@ -273,14 +305,13 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.819
 mesh = SubResource("PlaneMesh_um0s0")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 27, 0)
 visible = false
 use_collision = true
 size = Vector3(2048, 0.1, 2048)
 material = SubResource("StandardMaterial3D_vhww3")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.258819, -0.683013, 0.683013, 0, 0.707107, 0.707107, -0.965926, -0.183013, 0.183013, 0, 0, 0)
+transform = Transform3D(0.258819, -0.683013, 0.683013, 0, 0.707107, 0.707107, -0.965926, -0.183013, 0.183013, 0.239304, 0.441238, -0.23526)
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -307,7 +338,7 @@ transform = Transform3D(0.999988, 0.0047088, 0.00148998, -0.00470889, 0.999989, 
 surface_material_override/0 = SubResource("ShaderMaterial_5ny5d")
 
 [node name="Undine" parent="." instance=ExtResource("3_um0s0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -232.98, 59.082, 394.253)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -286.98, 65.082, 234.253)
 item = ExtResource("10_4dju6")
 req_item = ExtResource("11_xr74o")
 dialogue = ExtResource("12_7u14y")
@@ -319,13 +350,14 @@ surface_material_override/0 = SubResource("ShaderMaterial_y30h3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -244.104, 67.6855, -232.068)
 item = ExtResource("13_b5xft")
 req_item = ExtResource("14_01ntm")
-dialogue = ExtResource("12_7u14y")
+dialogue = ExtResource("17_xgbbl")
 
 [node name="Plane" parent="Gnome/StaticBody3D/NPC" index="0"]
 surface_material_override/0 = SubResource("ShaderMaterial_qo76q")
 
 [node name="Ending" parent="." instance=ExtResource("3_um0s0")]
 transform = Transform3D(-0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, 23, 300.255, -32)
+dialogue = ExtResource("17_y30h3")
 
 [node name="Panflute" parent="." instance=ExtResource("15_x0v5d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 527.3, 30.69, -123.242)
@@ -333,7 +365,7 @@ item = ExtResource("5_y30h3")
 dialogue = ExtResource("16_0arh2")
 
 [node name="Obsidian" parent="." instance=ExtResource("15_x0v5d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 238.584, 1.69, 570.638)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 116.552, 3.69832, 514.103)
 item = ExtResource("8_4wnk8")
 dialogue = ExtResource("16_0arh2")
 
@@ -343,7 +375,7 @@ item = ExtResource("11_xr74o")
 dialogue = ExtResource("16_0arh2")
 
 [node name="Drum" parent="." instance=ExtResource("15_x0v5d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.7558, 42.6902, -507.281)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -206.489, 65.6902, -237.974)
 item = ExtResource("14_01ntm")
 dialogue = ExtResource("16_0arh2")
 
@@ -351,6 +383,7 @@ dialogue = ExtResource("16_0arh2")
 data_directory = "res://Data/Terrain3D/Levelatronomus-Half"
 material = SubResource("Terrain3DMaterial_l7u6l")
 assets = ExtResource("17_yumhn")
+show_contours = true
 top_level = true
 metadata/_edit_lock_ = true
 
@@ -392,9 +425,128 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98.3694, 0, -23.0685)
 shape = SubResource("BoxShape3D_xgbbl")
 debug_color = Color(0, 0, 0, 1)
 
+[node name="Riverside2" type="Area3D" parent="East"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 334, 46, -81)
+script = ExtResource("21_y30h3")
+direction = Vector3(2, 0, -1)
+element = 3
+tempeture = 70
+metadata/_custom_type_script = "uid://e2ds0rt220tr"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="East/Riverside2"]
+transform = Transform3D(0.977264, 0, -0.212024, 0, 1, 0, 0.212024, 0, 0.977264, 9.18173, 14.449, -0.265327)
+shape = SubResource("BoxShape3D_4wnk8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="East/Riverside2/CollisionShape3D"]
+mesh = SubResource("BoxMesh_x4w4x")
+surface_material_override/0 = ExtResource("22_5ny5d")
+
+[node name="Riverside3" type="Area3D" parent="East"]
+transform = Transform3D(0.999609, 0, -0.027974, 0, 1, 0, 0.027974, 0, 0.999609, 380.164, 10.2507, -52.2332)
+script = ExtResource("21_y30h3")
+direction = Vector3(2, 0, -1)
+element = 3
+tempeture = 70
+metadata/_custom_type_script = "uid://e2ds0rt220tr"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="East/Riverside3"]
+transform = Transform3D(0.977264, 0, -0.212024, 0, 1, 0, 0.212024, 0, 0.977264, 9.18173, 14.449, -0.265327)
+shape = SubResource("BoxShape3D_4wnk8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="East/Riverside3/CollisionShape3D"]
+mesh = SubResource("BoxMesh_x4w4x")
+surface_material_override/0 = ExtResource("22_5ny5d")
+
+[node name="Riverside4" type="Area3D" parent="East"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 333, 0, 200)
+script = ExtResource("21_y30h3")
+direction = Vector3(2, 0, 0)
+element = 3
+tempeture = 70
+metadata/_custom_type_script = "uid://e2ds0rt220tr"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="East/Riverside4"]
+shape = SubResource("CylinderShape3D_xgbbl")
+debug_color = Color(0, 0, 0, 1)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="East/Riverside4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 91.6765, 0, -2.06848)
+shape = SubResource("BoxShape3D_xgbbl")
+debug_color = Color(0, 0, 0, 1)
+
+[node name="WindA" type="Area3D" parent="East"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 384, 45, 33)
+script = ExtResource("21_y30h3")
+direction = Vector3(0, 15, 0)
+element = 3
+tempeture = 70
+metadata/_custom_type_script = "uid://e2ds0rt220tr"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="East/WindA"]
+shape = SubResource("BoxShape3D_5ny5d")
+
+[node name="WindB" type="Area3D" parent="East"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 355, 109, 137)
+script = ExtResource("21_y30h3")
+direction = Vector3(0, 5, -5)
+element = 3
+tempeture = 70
+metadata/_custom_type_script = "uid://e2ds0rt220tr"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="East/WindB"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 60)
+shape = SubResource("BoxShape3D_x4w4x")
+
 [node name="South" type="Node3D" parent="."]
 
+[node name="WindA2" type="Area3D" parent="South"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55, 52, 361)
+script = ExtResource("21_y30h3")
+direction = Vector3(0, 5, 0)
+element = 3
+tempeture = 70
+metadata/_custom_type_script = "uid://e2ds0rt220tr"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="South/WindA2"]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 1.8, 0)
+shape = SubResource("BoxShape3D_5ny5d")
+
+[node name="WindA3" type="Area3D" parent="South"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.93785, 90, 341.984)
+script = ExtResource("21_y30h3")
+direction = Vector3(0, 5, 0)
+element = 3
+tempeture = 70
+metadata/_custom_type_script = "uid://e2ds0rt220tr"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="South/WindA3"]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 1.8, 0)
+shape = SubResource("BoxShape3D_5ny5d")
+
 [node name="West" type="Node3D" parent="."]
+
+[node name="ElementalArea" type="Area3D" parent="West"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -388, 0, 285)
+script = ExtResource("21_y30h3")
+metadata/_custom_type_script = "uid://e2ds0rt220tr"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="West/ElementalArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.04391, 33, -0.71106)
+shape = SubResource("CylinderShape3D_4wnk8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="West/ElementalArea/CollisionShape3D"]
+mesh = SubResource("CylinderMesh_x4w4x")
+
+[node name="ElementalArea2" type="Area3D" parent="West"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -528, 11, 285)
+script = ExtResource("21_y30h3")
+metadata/_custom_type_script = "uid://e2ds0rt220tr"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="West/ElementalArea2"]
+shape = SubResource("CylinderShape3D_4wnk8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="West/ElementalArea2/CollisionShape3D"]
+mesh = SubResource("CylinderMesh_x4w4x")
 
 [node name="North" type="Node3D" parent="."]
 

@@ -93,8 +93,8 @@ func _physics_process(delta):
 			# self.global_transform.origin.x = StickPoint.global_transform.origin.x
 			# self.global_transform.origin.z = StickPoint.global_transform.origin.z
 			
-			velocity.x = mDir.x * climb_speed   #+ ElementalAreaInfluence().x
-			velocity.y = - mDir.z * climb_speed #+ ElementalAreaInfluence().y
+			velocity.x = mDir.x * climb_speed   + ElementalAreaInfluence().x
+			velocity.y = - mDir.z * climb_speed + ElementalAreaInfluence().y
 			if jumped: velocity.y+=climb_speed
 			# Stamina.x -= velocity.length() / 64
 		else:

@@ -10,7 +10,8 @@ config_version=5
 
 [application]
 
-config/name="WTJ25-ElementalPuzzleGame"
+config/name="Spiritbornes"
+run/main_scene="uid://c3s3654f4vihw"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 

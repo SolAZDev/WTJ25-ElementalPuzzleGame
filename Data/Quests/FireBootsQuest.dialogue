@@ -52,6 +52,7 @@ Fae of Fire: That Obsidian, for some Weatherproof Boots.
 Fae of Fire: I traded it with a Human. It should help make your travels a bit better
 # TODO: Give Item
 do _GameManager.AddActiveInteractiveItem()
+set _GameManager.Quests['Fire']=2
 You have Obtained The Weatherproof Boots!
 | Tempatures shouldn't affect you as much. If only Humans had it that eaasy.
 Fae of Fire: Merry part, traveler. May your flame remain ever-stronger.

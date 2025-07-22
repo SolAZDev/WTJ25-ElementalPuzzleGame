@@ -10,6 +10,7 @@ if _GameManager.Quests['Air']==2:
 => END
 
 ~ QuestIntro
+Spiritborne: Tu Cara es una Canoa.
 Slyph of Air: Oh! Hello. I didn't expect to be seen so easily.
 Slyph of Air: I assume you're a Traveling Fae too? I've seen some around here on my way here.
 Slyph of Air: I came looking for a Pan Flute. It's a lovely Instrument.
@@ -50,6 +51,7 @@ Slyph of Air: So here you go, one of our Sylph Specialties!
 Slyph of Air: Your very own Wing Cloak! With this you can travel through wind a lil easier!
 # TODO: Give Item
 do _GameManager.AddActiveInteractiveItem()
+set _GameManager.Quests['Air']=2
 You have Obtained The Wing Cloak!
 | Now you can 'Float' in Wind, and when Falling!
 Slyph of Air: I hope that just as Flutes inspire me, may you find your inspirations and make great discoveries as well!

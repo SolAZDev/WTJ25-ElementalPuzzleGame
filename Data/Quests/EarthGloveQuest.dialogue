@@ -53,6 +53,7 @@ Fae of Earth: I was told others have used them to climb great heights.
 Fae of Earth: I believe they can serve you better than they'll serve me.
 # TODO: Give Item
 do _GameManager.AddActiveInteractiveItem()
+set _GameManager.Quests['Earth']=2
 You have Obtained The Power Grip Gloves!
 | Forged by Generations, they can help you climb, but how will you leave your mark?
 Fae of Earth: Merry meet, merry part, and merry meet again, traveler.
